@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
+import Features from '../../components/Features.astro';
 import { useTranslations } from '../../i18n/utils';
 import type { Lang } from '../../i18n/ui';
 import { languages } from '../../i18n/ui';
@@ -21,4 +22,5 @@ const t = useTranslations(lang);
   description={t('meta.description')}
 >
   <Hero lang={lang} />
+  <Features lang={lang} />
 </Layout>
