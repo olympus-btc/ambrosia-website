@@ -1,0 +1,181 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <a href={`/${lang}/`} class="footer-logo">
+        <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
+          <path d="M50 10 L15 85 L25 85 L50 30 L75 85 L85 85 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+          <path d="M75 85 L90 85" stroke="currentColor" stroke-width="6"/>
+        </svg>
+        <span>Ambrosia</span>
+      </a>
+      <p class="footer-tagline">{t('footer.tagline')}</p>
+    </div>
+
+    <div class="footer-links">
+      <div class="footer-column">
+        <h4 class="footer-heading">{t('footer.product')}</h4>
+        <a href="#features" class="footer-link">{t('nav.features')}</a>
+        <a href="#how-it-works" class="footer-link">{t('nav.how')}</a>
+        <a href="#download" class="footer-link">{t('nav.download')}</a>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">{t('footer.resources')}</h4>
+        <a href="https://github.com/AmbrosiaLabs/ambrosia" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub</a>
+        <a href="https://github.com/AmbrosiaLabs/ambrosia/wiki" target="_blank" rel="noopener noreferrer" class="footer-link">{t('footer.docs')}</a>
+        <a href="https://github.com/AmbrosiaLabs/ambrosia/releases" target="_blank" rel="noopener noreferrer" class="footer-link">{t('footer.releases')}</a>
+      </div>
+
+      <div class="footer-column">
+        <h4 class="footer-heading">{t('footer.community')}</h4>
+        <a href="https://twitter.com/AmbrosiaLabs" target="_blank" rel="noopener noreferrer" class="footer-link">Twitter</a>
+        <a href="https://github.com/AmbrosiaLabs/ambrosia/discussions" target="_blank" rel="noopener noreferrer" class="footer-link">{t('footer.discussions')}</a>
+        <a href="https://github.com/AmbrosiaLabs/ambrosia/issues" target="_blank" rel="noopener noreferrer" class="footer-link">{t('footer.issues')}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p class="footer-copyright">
+      &copy; {currentYear} Ambrosia. {t('footer.rights')}
+    </p>
+    <p class="footer-license">
+      {t('footer.license')}
+    </p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(10, 10, 10, 0.8);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1.5fr 2fr;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #f5f5f5;
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .footer-logo:hover {
+    color: #4ade80;
+  }
+
+  .logo-icon {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .footer-tagline {
+    color: #737373;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    max-width: 280px;
+    margin: 0;
+  }
+
+  .footer-links {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  @media (min-width: 640px) {
+    .footer-links {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .footer-heading {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #a3a3a3;
+    margin: 0 0 0.5rem;
+  }
+
+  .footer-link {
+    font-size: 0.875rem;
+    color: #737373;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-link:hover {
+    color: #4ade80;
+  }
+
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 3rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 640px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+  }
+
+  .footer-copyright,
+  .footer-license {
+    font-size: 0.75rem;
+    color: #525252;
+    margin: 0;
+  }
+</style>

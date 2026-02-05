@@ -1,0 +1,227 @@
+---
+import LanguagePicker from './LanguagePicker.astro';
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const navItems = [
+  { key: 'nav.features', href: '#features' },
+  { key: 'nav.why', href: '#why-ambrosia' },
+  { key: 'nav.how', href: '#how-it-works' },
+  { key: 'nav.opensource', href: '#open-source' },
+  { key: 'nav.download', href: '#download' },
+] as const;
+---
+
+<header class="header">
+  <a href={`/${lang}/`} class="logo">
+    <svg class="logo-icon" viewBox="0 0 100 100" fill="none">
+      <path d="M50 10 L15 85 L25 85 L50 30 L75 85 L85 85 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+      <path d="M75 85 L90 85" stroke="currentColor" stroke-width="6"/>
+    </svg>
+    <span class="logo-text">Ambrosia</span>
+  </a>
+
+  <nav class="nav-desktop">
+    {navItems.map(({ key, href }) => (
+      <a href={href} class="nav-link">{t(key as any)}</a>
+    ))}
+  </nav>
+
+  <div class="header-actions">
+    <LanguagePicker lang={lang} />
+    <button class="mobile-menu-btn" aria-label="Menu" id="mobile-menu-btn">
+      <svg class="menu-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" id="mobile-nav">
+    {navItems.map(({ key, href }) => (
+      <a href={href} class="nav-link-mobile">{t(key as any)}</a>
+    ))}
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const nav = document.getElementById('mobile-nav');
+  const header = document.querySelector('.header');
+
+  btn?.addEventListener('click', () => {
+    header?.classList.toggle('menu-open');
+  });
+
+  // Close menu when clicking a link
+  nav?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      header?.classList.remove('menu-open');
+    });
+  });
+</script>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    z-index: 100;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #f5f5f5;
+    transition: color 0.2s ease;
+  }
+
+  .logo:hover {
+    color: #4ade80;
+  }
+
+  .logo-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  .nav-desktop {
+    display: none;
+    gap: 0.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .nav-desktop {
+      display: flex;
+    }
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #a3a3a3;
+    text-decoration: none;
+    border-radius: 0.375rem;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: #f5f5f5;
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    color: #f5f5f5;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-menu-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  @media (min-width: 768px) {
+    .mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  .menu-icon,
+  .close-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .close-icon {
+    display: none;
+  }
+
+  .header.menu-open .menu-icon {
+    display: none;
+  }
+
+  .header.menu-open .close-icon {
+    display: block;
+  }
+
+  .nav-mobile {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    padding: 1rem;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .header.menu-open .nav-mobile {
+    display: flex;
+  }
+
+  @media (min-width: 768px) {
+    .nav-mobile {
+      display: none !important;
+    }
+  }
+
+  .nav-link-mobile {
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #a3a3a3;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link-mobile:hover {
+    color: #f5f5f5;
+    background: rgba(255, 255, 255, 0.05);
+  }
+</style>

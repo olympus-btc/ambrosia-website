@@ -1,15 +1,39 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Lang } from '../i18n/ui';
+import '../styles/global.css';
+
+interface Props {
+  lang?: Lang;
+  title?: string;
+  description?: string;
+}
+
+const {
+  lang = 'en',
+  title = 'Ambrosia',
+  description = 'Open source point of sale for Bitcoin Lightning',
+} = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<Header lang={lang} />
+		<main>
+			<slot />
+		</main>
+		<Footer lang={lang} />
 	</body>
 </html>
 
@@ -18,6 +42,13 @@
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
+		min-height: 100%;
+		background: #0a0a0a;
+		color: #f5f5f5;
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+	}
+
+	main {
+		min-height: 100vh;
 	}
 </style>
