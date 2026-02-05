@@ -1,0 +1,354 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+import { type Lang as LangType } from '../i18n/ui';
+
+interface Props {
+  lang: LangType;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">{t('hero.eyebrow')}</span>
+
+    <h1 class="headline">{t('hero.headline')}</h1>
+
+    <p class="subheadline">{t('hero.subheadline')}</p>
+
+    <div class="badges">
+      <span class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        {t('hero.badge.node')}
+      </span>
+      <span class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+        </svg>
+        {t('hero.badge.lightning')}
+      </span>
+      <span class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        {t('hero.badge.opensource')}
+      </span>
+      <span class="badge">
+        <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        {t('hero.badge.free')}
+      </span>
+    </div>
+
+    <div class="ctas">
+      <a href="#download" class="cta-primary">
+        <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        {t('hero.cta.download')}
+      </a>
+      <a href="https://github.com/AmbrosiaLabs/ambrosia" target="_blank" rel="noopener noreferrer" class="cta-secondary">
+        {t('hero.cta.github')}
+        <svg class="cta-icon-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <p class="trust">{t('hero.trust')}</p>
+  </div>
+
+  <div class="hero-gradient"></div>
+</section>
+
+<style>
+  .hero {
+    min-height: auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding: 6rem 1rem 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero {
+      padding: 7rem 2rem 4rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      align-items: center;
+      padding: 6rem 2rem 2rem;
+    }
+  }
+
+  .hero-gradient {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(74, 222, 128, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 50%, rgba(52, 211, 153, 0.12) 0%, transparent 40%),
+                radial-gradient(ellipse at 20% 80%, rgba(163, 230, 53, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .hero-content {
+      gap: 1.5rem;
+    }
+  }
+
+  .eyebrow {
+    display: inline-block;
+    padding: 0.375rem 0.75rem;
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.3);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4ade80;
+    letter-spacing: 0.025em;
+  }
+
+  @media (min-width: 640px) {
+    .eyebrow {
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .headline {
+    font-size: clamp(1.875rem, 8vw, 4.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #f5f5f5;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  .subheadline {
+    font-size: clamp(0.9375rem, 2.5vw, 1.375rem);
+    color: #a3a3a3;
+    line-height: 1.5;
+    margin: 0;
+    max-width: 600px;
+    padding: 0 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .subheadline {
+      line-height: 1.6;
+      padding: 0;
+    }
+  }
+
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .badges {
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.375rem 0.75rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    color: #d4d4d4;
+    transition: all 0.2s ease;
+  }
+
+  @media (min-width: 640px) {
+    .badge {
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      font-size: 0.875rem;
+    }
+  }
+
+  .badge:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+  }
+
+  .badge-icon {
+    width: 0.875rem;
+    height: 0.875rem;
+    color: #4ade80;
+  }
+
+  @media (min-width: 640px) {
+    .badge-icon {
+      width: 1rem;
+      height: 1rem;
+    }
+  }
+
+  .ctas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  @media (min-width: 480px) {
+    .ctas {
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  .cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    color: #0a0a0a;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 14px rgba(74, 222, 128, 0.3);
+    width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .cta-primary {
+      width: auto;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  .cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(74, 222, 128, 0.4);
+  }
+
+  .cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.5rem;
+    background: transparent;
+    color: #f5f5f5;
+    font-weight: 500;
+    font-size: 0.9375rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
+
+  @media (min-width: 480px) {
+    .cta-secondary {
+      width: auto;
+      padding: 0.875rem 1.75rem;
+      font-size: 1rem;
+    }
+  }
+
+  .cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .cta-icon {
+    width: 1.125rem;
+    height: 1.125rem;
+  }
+
+  @media (min-width: 640px) {
+    .cta-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .cta-icon-arrow {
+    width: 1.125rem;
+    height: 1.125rem;
+    transition: transform 0.2s ease;
+  }
+
+  @media (min-width: 640px) {
+    .cta-icon-arrow {
+      width: 1.25rem;
+      height: 1.25rem;
+    }
+  }
+
+  .cta-secondary:hover .cta-icon-arrow {
+    transform: translateX(4px);
+  }
+
+  .trust {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    color: #737373;
+    letter-spacing: 0.01em;
+    padding: 0 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .trust {
+      margin-top: 1rem;
+      font-size: 0.875rem;
+      padding: 0;
+    }
+  }
+</style>
