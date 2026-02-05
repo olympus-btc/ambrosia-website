@@ -1,0 +1,152 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const rows = [
+  'cost',
+  'custody',
+  'lightning',
+  'ux',
+  'maintenance',
+  'setup',
+  'technical',
+  'opensource',
+  'kyc',
+] as const;
+
+const competitors = ['custodial', 'onchain', 'btcpay', 'mobile', 'ambrosia'] as const;
+
+function parseCell(value: string): { status?: string; main: string; sub?: string } {
+  const parts = value.split('|');
+  if (parts.length === 1) {
+    // Check if it starts with a status indicator
+    if (['yes', 'no', 'warn', 'fast', 'slow'].includes(parts[0].split('|')[0])) {
+      return { status: parts[0], main: parts[0] };
+    }
+    return { main: parts[0] };
+  }
+  return { status: parts[0], main: parts[0], sub: parts[1] };
+}
+
+function getStatusIcon(status: string) {
+  switch (status) {
+    case 'yes':
+      return { icon: '✓', class: 'text-green-400' };
+    case 'no':
+      return { icon: '✗', class: 'text-red-400' };
+    case 'warn':
+      return { icon: '⚠', class: 'text-yellow-400' };
+    case 'fast':
+      return { icon: '⚡', class: 'text-green-400' };
+    case 'slow':
+      return { icon: '🐌', class: 'text-red-400' };
+    default:
+      return null;
+  }
+}
+---
+
+<section id="why-ambrosia" class="py-20 md:py-28 px-4 md:px-8 bg-neutral-950/50">
+  <div class="max-w-7xl mx-auto">
+    <!-- Header -->
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4 px-2">
+        {t('why.header')}
+      </h2>
+      <p class="text-base md:text-lg lg:text-xl text-neutral-400 max-w-3xl mx-auto px-2">
+        {t('why.subheader')}
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="relative">
+      <!-- Scroll hint for mobile/tablet -->
+      <div class="lg:hidden text-center text-neutral-500 text-sm mb-3 flex items-center justify-center gap-2">
+        <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+        </svg>
+        <span>Scroll to compare</span>
+      </div>
+
+      <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-900 pb-4">
+        <table class="w-full min-w-[900px] border-collapse">
+          <thead>
+            <tr>
+              <th class="sticky left-0 z-10 bg-neutral-950/80 backdrop-blur-md p-4 text-left text-sm font-semibold text-neutral-300 border-b border-white/10 min-w-[140px]">
+                {t('why.table.feature')}
+              </th>
+              {competitors.map((comp) => (
+                <th class:list={[
+                  "p-4 text-center text-sm font-semibold border-b min-w-[160px]",
+                  comp === 'ambrosia'
+                    ? "bg-green-400/10 text-green-400 border-green-400/30"
+                    : "bg-neutral-900/50 text-neutral-300 border-white/10"
+                ]}>
+                  <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
+                  {(comp === 'custodial' || comp === 'onchain' || comp === 'mobile') && (
+                    <div class="text-xs font-normal text-neutral-500 mt-1">
+                      {t(`why.table.${comp}.sub` as any)}
+                    </div>
+                  )}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, idx) => (
+              <tr class={idx % 2 === 0 ? 'bg-neutral-900/30' : 'bg-neutral-900/10'}>
+                <td class="sticky left-0 z-10 p-4 text-sm font-medium text-neutral-200 border-b border-white/5 bg-neutral-950/80 backdrop-blur-md">
+                  {t(`why.row.${row}` as any)}
+                </td>
+                {competitors.map((comp) => {
+                  const cellValue = t(`why.row.${row}.${comp}` as any);
+                  const parsed = parseCell(cellValue);
+                  const statusInfo = parsed.status ? getStatusIcon(parsed.status) : null;
+                  const isAmbrosia = comp === 'ambrosia';
+
+                  return (
+                    <td class:list={[
+                      "p-4 text-center text-sm border-b border-white/5",
+                      isAmbrosia ? "bg-green-400/5" : ""
+                    ]}>
+                      <div class:list={[
+                        "flex flex-col items-center gap-1",
+                        isAmbrosia ? "font-semibold text-green-400" : "text-neutral-300"
+                      ]}>
+                        {statusInfo && (
+                          <span class={`text-lg ${statusInfo.class}`}>
+                            {statusInfo.icon}
+                          </span>
+                        )}
+                        {parsed.sub ? (
+                          <>
+                            <span class={isAmbrosia ? "text-green-400" : ""}>{parsed.sub.split('|')[0] || parsed.sub}</span>
+                            {parsed.sub.includes('|') && (
+                              <span class="text-xs text-neutral-500">{parsed.sub.split('|')[1]}</span>
+                            )}
+                          </>
+                        ) : (
+                          <span>{parsed.main}</span>
+                        )}
+                      </div>
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Gradient fade on right edge (mobile/tablet) -->
+      <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none lg:hidden"></div>
+    </div>
+  </div>
+</section>
