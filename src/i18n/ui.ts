@@ -28,6 +28,22 @@ export const ui = {
     'hero.badge.opensource': '100% Open Source',
     'hero.badge.free': 'Free Forever',
 
+    // Features Section
+    'features.header': 'Built on Bitcoin principles',
+    'features.subheader': 'Every feature designed for sovereignty and simplicity',
+    'features.phoenixd.title': 'Integrated Phoenixd Node',
+    'features.phoenixd.description': "Runs ACINQ's phoenixd Lightning node natively. Manage your own channels, handle your own liquidity, full node sovereignty.",
+    'features.custody.title': 'Self-Custodial by Design',
+    'features.custody.description': "Your private keys never leave your device. Non-custodial architecture means you're always in complete control of your funds.",
+    'features.instant.title': 'Instant Payments, Zero Waiting',
+    'features.instant.description': 'Accept Lightning payments in seconds. No confirmation delays, no chargebacks, no intermediaries taking a cut.',
+    'features.free.title': 'Free Forever, No Surprises',
+    'features.free.description': 'Download once, use forever. No monthly fees, no transaction limits, no premium tiers. Open Source means truly free.',
+    'features.setup.title': 'Running in Under 5 Minutes',
+    'features.setup.description': 'Zero configuration required. Download, install, and start accepting bitcoin. Your phoenixd node handles everything automatically.',
+    'features.opensource.title': 'Fully Open Source',
+    'features.opensource.description': 'MIT licensed, auditable codebase. Fork it, modify it, verify it. Community-driven development with full transparency.',
+
     // Footer
     'footer.tagline': 'Open source point of sale for Bitcoin Lightning payments.',
     'footer.product': 'Product',
@@ -65,6 +81,22 @@ export const ui = {
     'hero.badge.lightning': 'Canales Lightning',
     'hero.badge.opensource': '100% Open Source',
     'hero.badge.free': 'Gratis para siempre',
+
+    // Features Section
+    'features.header': 'Construido sobre principios Bitcoin',
+    'features.subheader': 'Cada característica diseñada para soberanía y simplicidad',
+    'features.phoenixd.title': 'Nodo Phoenixd Integrado',
+    'features.phoenixd.description': 'Ejecuta el nodo Lightning phoenixd de ACINQ nativamente. Gestiona tus propios canales, maneja tu propia liquidez, soberanía total del nodo.',
+    'features.custody.title': 'Auto-Custodia por Diseño',
+    'features.custody.description': 'Tus llaves privadas nunca salen de tu dispositivo. Arquitectura no custodial significa que siempre tienes control completo de tus fondos.',
+    'features.instant.title': 'Pagos Instantáneos, Cero Esperas',
+    'features.instant.description': 'Acepta pagos Lightning en segundos. Sin esperas de confirmación, sin contracargos, sin intermediarios cobrando comisiones.',
+    'features.free.title': 'Gratis para Siempre, Sin Sorpresas',
+    'features.free.description': 'Descarga una vez, usa para siempre. Sin cuotas mensuales, sin límites de transacciones, sin planes premium. Open Source significa verdaderamente gratis.',
+    'features.setup.title': 'Funcionando en Menos de 5 Minutos',
+    'features.setup.description': 'Cero configuración requerida. Descarga, instala y comienza a aceptar bitcoin. Tu nodo phoenixd maneja todo automáticamente.',
+    'features.opensource.title': 'Completamente Open Source',
+    'features.opensource.description': 'Licencia MIT, código auditable. Bifúrcalo, modifícalo, verifícalo. Desarrollo impulsado por la comunidad con transparencia total.',
 
     // Footer
     'footer.tagline': 'Punto de venta open source para pagos Bitcoin Lightning.',
