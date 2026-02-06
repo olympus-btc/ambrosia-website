@@ -95,6 +95,25 @@ export const ui = {
     'why.row.kyc.mobile': 'yes|No KYC',
     'why.row.kyc.ambrosia': 'yes|No KYC, no telemetry',
 
+    // How it Works Section
+    'how.header': 'Start accepting Bitcoin in three simple steps',
+    'how.subheader': 'From setup to sale in under 5 minutes',
+    'how.protip': 'Before your first sale:',
+    'how.protip.text': 'After initial setup, visit the Wallet section to open your Lightning channel by depositing sats. This activates your phoenixd node and enables instant Bitcoin payments with full sovereignty.',
+    'how.step1.number': '01',
+    'how.step1.title': 'Set up your store',
+    'how.step1.description': 'Choose your business type, name your store, and create your admin account. A simple 4-step wizard gets you ready to sell—no technical knowledge required.',
+    'how.step1.duration': '~40 seconds',
+    'how.step2.number': '02',
+    'how.step2.title': 'Add your products',
+    'how.step2.description': 'Add product details, set prices in sats, and assign stock quantities. The system automatically tracks inventory and alerts you when it\'s time to restock.',
+    'how.step2.duration': '~47 seconds',
+    'how.step3.number': '03',
+    'how.step3.title': 'Accept payments',
+    'how.step3.description': 'Select products, generate Lightning invoices, and receive instant payments. Accept Lightning, cash, debit, or credit—all tracked automatically in your sales reports.',
+    'how.step3.duration': '~25 seconds',
+    'how.cta': 'Ready to start? Download Ambrosia PoS',
+
     // Features Section
     'features.header': 'Built on Bitcoin principles',
     'features.subheader': 'Every feature designed for sovereignty and simplicity',
@@ -215,6 +234,25 @@ export const ui = {
     'why.row.kyc.btcpay': 'yes|Sin KYC',
     'why.row.kyc.mobile': 'yes|Sin KYC',
     'why.row.kyc.ambrosia': 'yes|Sin KYC, sin telemetría',
+
+    // How it Works Section
+    'how.header': 'Comienza a aceptar Bitcoin en tres pasos simples',
+    'how.subheader': 'De la configuración a la venta en menos de 5 minutos',
+    'how.protip': 'Antes de tu primera venta:',
+    'how.protip.text': 'Después de la configuración inicial, visita la sección Wallet para abrir tu canal Lightning depositando sats. Esto activa tu nodo phoenixd y habilita pagos instantáneos de Bitcoin con soberanía total.',
+    'how.step1.number': '01',
+    'how.step1.title': 'Configura tu tienda',
+    'how.step1.description': 'Elige tu tipo de negocio, nombra tu tienda y crea tu cuenta de administrador. Un wizard simple de 4 pasos te prepara para vender—sin conocimientos técnicos requeridos.',
+    'how.step1.duration': '~40 segundos',
+    'how.step2.number': '02',
+    'how.step2.title': 'Agrega tus productos',
+    'how.step2.description': 'Agrega detalles del producto, establece precios en sats y asigna cantidades de stock. El sistema rastrea automáticamente el inventario y te alerta cuando es momento de reabastecer.',
+    'how.step2.duration': '~47 segundos',
+    'how.step3.number': '03',
+    'how.step3.title': 'Acepta pagos',
+    'how.step3.description': 'Selecciona productos, genera facturas Lightning y recibe pagos instantáneos. Acepta Lightning, efectivo, débito o crédito—todo rastreado automáticamente en tus reportes de ventas.',
+    'how.step3.duration': '~25 segundos',
+    'how.cta': '¿Listo para comenzar? Descarga Ambrosia PoS',
 
     // Features Section
     'features.header': 'Construido sobre principios Bitcoin',

@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import Features from '../../components/Features.astro';
 import WhyAmbrosia from '../../components/WhyAmbrosia.astro';
+import HowItWorks from '../../components/HowItWorks.astro';
 import { useTranslations } from '../../i18n/utils';
 import type { Lang } from '../../i18n/ui';
 import { languages } from '../../i18n/ui';
@@ -25,4 +26,5 @@ const t = useTranslations(lang);
   <Hero lang={lang} />
   <Features lang={lang} />
   <WhyAmbrosia lang={lang} />
+  <HowItWorks lang={lang} />
 </Layout>
