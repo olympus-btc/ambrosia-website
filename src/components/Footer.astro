@@ -13,6 +13,7 @@ const t = useTranslations(lang);
 const currentYear = new Date().getFullYear();
 const NOSTR_URL = 'https://nosta.me/npub1flqcduq8q9rtqen4axufyqjngkml3kdsn4q7tgexldl2lut68k5qag4pt8?t=black';
 const DISCORD_URL = 'https://discord.gg/ZXk2hsRpm2';
+const X_URL= 'https://x.com/AmbrosiaPoS'
 ---
 
 <footer class="border-t border-white/5 bg-neutral-950/80 px-4 py-16 md:px-8 md:pt-16 md:pb-8">
@@ -63,7 +64,7 @@ const DISCORD_URL = 'https://discord.gg/ZXk2hsRpm2';
           {t('footer.community')}
         </h4>
         <a href={NOSTR_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.community.nostr')}</a>
-        <span class="text-sm text-neutral-600">{t('footer.community.twitter')} <span class="text-xs italic text-neutral-700">({t('footer.community.soon')})</span></span>
+        <a href={X_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.community.twitter')}</>
         <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.community.discord')}</a>
         <span class="text-sm text-neutral-600">{t('footer.community.telegram')} <span class="text-xs italic text-neutral-700">({t('footer.community.soon')})</span></span>
       </div>

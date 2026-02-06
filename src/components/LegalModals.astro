@@ -1,0 +1,373 @@
+---
+import { useTranslations } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!-- Privacy Policy Modal -->
+<dialog id="privacy-modal" class="bg-transparent p-0 m-0 max-w-none max-h-none w-full h-full backdrop:bg-black/70">
+  <div class="flex items-center justify-center min-h-full px-4 py-8">
+    <div class="bg-neutral-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col">
+      <!-- Header -->
+      <div class="flex items-center justify-between p-6 border-b border-white/5 shrink-0">
+        <div>
+          <h2 class="text-xl font-bold text-neutral-100">{t('footer.legal.privacy')}</h2>
+          <p class="text-xs text-neutral-500 mt-1">{t('legal.updated')}</p>
+        </div>
+        <button onclick="document.getElementById('privacy-modal').close()" class="w-8 h-8 flex items-center justify-center rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-white/5 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 overflow-y-auto legal-content">
+        {lang === 'en' ? (
+          <div class="flex flex-col gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">No Data Collection</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Ambrosia PoS does not collect, store, or transmit any personal data or usage analytics. Period.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Local Data Only</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">All data (sales, products, settings) is stored locally on your device. We never see it.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">No Tracking</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">No cookies, no telemetry, no analytics, no phone-home. Your business is your business.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Third-Party Services</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia connects to:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li><span class="text-neutral-200 font-medium">Lightning Network</span> — To process Bitcoin payments (decentralized, no personal data)</li>
+                <li><span class="text-neutral-200 font-medium">phoenixd by ACINQ</span> — Your self-custodial Lightning node (runs locally)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Open Source</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Our entire codebase is public. Verify our privacy claims yourself: <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">github.com/olympus-btc/ambrosia</a></p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Contact</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Questions? <a href="mailto:contact@ambrosiapay.com" class="text-green-400 hover:underline">contact@ambrosiapay.com</a></p>
+            </div>
+          </div>
+        ) : (
+          <div class="flex flex-col gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Sin Recolección de Datos</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Ambrosia PoS no recolecta, almacena ni transmite ningún dato personal ni analíticas de uso. Punto.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Datos Solo Locales</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Todos los datos (ventas, productos, configuración) se almacenan localmente en tu dispositivo. Nunca los vemos.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Sin Rastreo</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Sin cookies, sin telemetría, sin analíticas, sin phone-home. Tu negocio es tu negocio.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Servicios de Terceros</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia se conecta a:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li><span class="text-neutral-200 font-medium">Lightning Network</span> — Para procesar pagos Bitcoin (descentralizado, sin datos personales)</li>
+                <li><span class="text-neutral-200 font-medium">phoenixd de ACINQ</span> — Tu nodo Lightning auto-custodial (corre localmente)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Open Source</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Todo nuestro código es público. Verifica nuestras políticas de privacidad tú mismo: <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">github.com/olympus-btc/ambrosia</a></p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">Contacto</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">¿Preguntas? <a href="mailto:contact@ambrosiapay.com" class="text-green-400 hover:underline">contact@ambrosiapay.com</a></p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Footer -->
+      <div class="p-6 border-t border-white/5 shrink-0">
+        <button onclick="document.getElementById('privacy-modal').close()" class="w-full py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-neutral-300 hover:bg-white/10 transition-colors">
+          {t('legal.close')}
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<!-- Terms of Service Modal -->
+<dialog id="terms-modal" class="bg-transparent p-0 m-0 max-w-none max-h-none w-full h-full backdrop:bg-black/70">
+  <div class="flex items-center justify-center min-h-full px-4 py-8">
+    <div class="bg-neutral-900 border border-white/10 rounded-2xl max-w-2xl w-full max-h-[85vh] flex flex-col">
+      <!-- Header -->
+      <div class="flex items-center justify-between p-6 border-b border-white/5 shrink-0">
+        <div>
+          <h2 class="text-xl font-bold text-neutral-100">{t('footer.legal.terms')}</h2>
+          <p class="text-xs text-neutral-500 mt-1">{t('legal.updated')}</p>
+        </div>
+        <button onclick="document.getElementById('terms-modal').close()" class="w-8 h-8 flex items-center justify-center rounded-lg text-neutral-400 hover:text-neutral-100 hover:bg-white/5 transition-colors">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content -->
+      <div class="p-6 overflow-y-auto legal-content">
+        {lang === 'en' ? (
+          <div class="flex flex-col gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">1. Acceptance of Terms</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">By downloading and using Ambrosia PoS, you agree to these Terms of Service. If you don't agree, don't use the software.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">2. License</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia PoS is licensed under the <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">MIT License</a>. This means:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li class="text-green-400/80">&#10003; You can use it for free, forever</li>
+                <li class="text-green-400/80">&#10003; You can modify it for your own needs</li>
+                <li class="text-green-400/80">&#10003; You can redistribute it (with attribution)</li>
+                <li class="text-green-400/80">&#10003; You can use it commercially</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">3. No Warranty</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia PoS is provided "AS IS" without warranty of any kind. We don't guarantee:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li>That it will work perfectly 100% of the time</li>
+                <li>That it's suitable for your specific business needs</li>
+                <li>That it will be bug-free or uninterrupted</li>
+              </ul>
+              <p class="text-sm text-neutral-500 italic mt-2">Translation: Use at your own risk. We built it with care, but software is never perfect.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">4. Your Responsibility</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">You are responsible for:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400 mb-3">
+                <li class="text-green-400/80">&#10003; Backing up your phoenixd seed phrase</li>
+                <li class="text-green-400/80">&#10003; Securing your device and admin credentials</li>
+                <li class="text-green-400/80">&#10003; Complying with your local laws regarding Bitcoin</li>
+                <li class="text-green-400/80">&#10003; Your own accounting and tax reporting</li>
+              </ul>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">We are NOT responsible for:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li class="text-red-400/80">&#10007; Lost funds due to user error or device failure</li>
+                <li class="text-red-400/80">&#10007; Legal compliance in your jurisdiction</li>
+                <li class="text-red-400/80">&#10007; Business losses or downtime</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">5. No Data Collection</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">We don't collect your data because we can't—everything runs locally on your device.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">6. Self-Custody = Self-Responsibility</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia is self-custodial, which means:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li><span class="text-neutral-200 font-medium">You control your private keys</span> (good!)</li>
+                <li><span class="text-neutral-200 font-medium">We cannot recover lost keys</span> (your responsibility)</li>
+                <li><span class="text-neutral-200 font-medium">We cannot reverse transactions</span> (Bitcoin is final)</li>
+              </ul>
+              <p class="text-sm text-yellow-400/80 mt-2 font-medium">If you lose your seed phrase or device, your funds are gone. Write down your seed phrase and store it safely.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">7. Open Source Contributions</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">If you contribute code to Ambrosia via pull requests, you agree to license your contributions under the MIT License.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">8. No Guarantees on phoenixd</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Ambrosia integrates <a href="https://phoenix.acinq.co/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">phoenixd by ACINQ</a>. We don't control phoenixd's development or behavior. Any issues with phoenixd should be reported to ACINQ.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">9. Limitation of Liability</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">To the maximum extent permitted by law, we (the Ambrosia PoS developers) are not liable for:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li>Lost Bitcoin or funds</li>
+                <li>Business interruptions</li>
+                <li>Data loss</li>
+                <li>Any damages arising from use of the software</li>
+              </ul>
+              <p class="text-sm text-neutral-500 italic mt-2">Translation: If something goes wrong, we can't be sued. This is open source software provided for free.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">10. Changes to Terms</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">We may update these Terms occasionally. Continued use after changes means you accept the new terms.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">11. Termination</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">You can stop using Ambrosia anytime by uninstalling it. We can't "terminate" you because we don't have accounts or control over your installation.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">12. Contact</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Questions about these Terms? <a href="mailto:contact@ambrosiapay.com" class="text-green-400 hover:underline">contact@ambrosiapay.com</a></p>
+            </div>
+            <!-- TL;DR -->
+            <div class="p-4 bg-green-400/5 border border-green-400/10 rounded-xl">
+              <h4 class="text-sm font-bold text-green-400 mb-2">TL;DR</h4>
+              <ul class="flex flex-col gap-1 text-sm text-neutral-400">
+                <li>It's free forever (MIT License)</li>
+                <li>Use at your own risk (no warranty)</li>
+                <li>Back up your seed phrase (we can't recover it)</li>
+                <li>You're responsible for legal compliance</li>
+                <li>We don't collect your data</li>
+                <li>Don't sue us if something goes wrong (it's free software)</li>
+              </ul>
+              <p class="text-xs text-neutral-500 mt-3">Don't trust, verify: Read the full <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">MIT License</a> and our <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">source code</a>.</p>
+            </div>
+          </div>
+        ) : (
+          <div class="flex flex-col gap-6">
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">1. Aceptación de Términos</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Al descargar y usar Ambrosia PoS, aceptas estos Términos de Servicio. Si no estás de acuerdo, no uses el software.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">2. Licencia</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia PoS está licenciado bajo la <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">Licencia MIT</a>. Esto significa:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li class="text-green-400/80">&#10003; Puedes usarlo gratis, para siempre</li>
+                <li class="text-green-400/80">&#10003; Puedes modificarlo para tus necesidades</li>
+                <li class="text-green-400/80">&#10003; Puedes redistribuirlo (con atribución)</li>
+                <li class="text-green-400/80">&#10003; Puedes usarlo comercialmente</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">3. Sin Garantía</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia PoS se proporciona "TAL CUAL" sin garantía de ningún tipo. No garantizamos:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li>Que funcione perfectamente el 100% del tiempo</li>
+                <li>Que sea adecuado para tus necesidades específicas de negocio</li>
+                <li>Que esté libre de errores o interrupciones</li>
+              </ul>
+              <p class="text-sm text-neutral-500 italic mt-2">Traducción: Úsalo bajo tu propio riesgo. Lo construimos con cuidado, pero el software nunca es perfecto.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">4. Tu Responsabilidad</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Eres responsable de:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400 mb-3">
+                <li class="text-green-400/80">&#10003; Respaldar tu frase semilla de phoenixd</li>
+                <li class="text-green-400/80">&#10003; Asegurar tu dispositivo y credenciales de admin</li>
+                <li class="text-green-400/80">&#10003; Cumplir con las leyes locales sobre Bitcoin</li>
+                <li class="text-green-400/80">&#10003; Tu propia contabilidad y reportes fiscales</li>
+              </ul>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">NO somos responsables de:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li class="text-red-400/80">&#10007; Fondos perdidos por error del usuario o falla del dispositivo</li>
+                <li class="text-red-400/80">&#10007; Cumplimiento legal en tu jurisdicción</li>
+                <li class="text-red-400/80">&#10007; Pérdidas de negocio o tiempo de inactividad</li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">5. Sin Recolección de Datos</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">No recolectamos tus datos porque no podemos—todo corre localmente en tu dispositivo.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">6. Auto-Custodia = Auto-Responsabilidad</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">Ambrosia es auto-custodial, lo que significa:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li><span class="text-neutral-200 font-medium">Tú controlas tus llaves privadas</span> (¡bien!)</li>
+                <li><span class="text-neutral-200 font-medium">No podemos recuperar llaves perdidas</span> (tu responsabilidad)</li>
+                <li><span class="text-neutral-200 font-medium">No podemos revertir transacciones</span> (Bitcoin es final)</li>
+              </ul>
+              <p class="text-sm text-yellow-400/80 mt-2 font-medium">Si pierdes tu frase semilla o dispositivo, tus fondos se pierden. Escribe tu frase semilla y guárdala de forma segura.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">7. Contribuciones Open Source</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Si contribuyes código a Ambrosia mediante pull requests, aceptas licenciar tus contribuciones bajo la Licencia MIT.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">8. Sin Garantías sobre phoenixd</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Ambrosia integra <a href="https://phoenix.acinq.co/" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">phoenixd de ACINQ</a>. No controlamos el desarrollo o comportamiento de phoenixd. Cualquier problema con phoenixd debe reportarse a ACINQ.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">9. Limitación de Responsabilidad</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed mb-2">En la máxima medida permitida por la ley, nosotros (los desarrolladores de Ambrosia PoS) no somos responsables de:</p>
+              <ul class="flex flex-col gap-1.5 text-sm text-neutral-400">
+                <li>Bitcoin o fondos perdidos</li>
+                <li>Interrupciones del negocio</li>
+                <li>Pérdida de datos</li>
+                <li>Cualquier daño derivado del uso del software</li>
+              </ul>
+              <p class="text-sm text-neutral-500 italic mt-2">Traducción: Si algo sale mal, no nos pueden demandar. Es software open source proporcionado gratuitamente.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">10. Cambios en los Términos</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Podemos actualizar estos Términos ocasionalmente. El uso continuo después de los cambios significa que aceptas los nuevos términos.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">11. Terminación</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">Puedes dejar de usar Ambrosia en cualquier momento desinstalándolo. No podemos "terminarte" porque no tenemos cuentas ni control sobre tu instalación.</p>
+            </div>
+            <div>
+              <h3 class="text-lg font-semibold text-neutral-100 mb-2">12. Contacto</h3>
+              <p class="text-sm text-neutral-400 leading-relaxed">¿Preguntas sobre estos Términos? <a href="mailto:contact@ambrosiapay.com" class="text-green-400 hover:underline">contact@ambrosiapay.com</a></p>
+            </div>
+            <!-- TL;DR -->
+            <div class="p-4 bg-green-400/5 border border-green-400/10 rounded-xl">
+              <h4 class="text-sm font-bold text-green-400 mb-2">TL;DR</h4>
+              <ul class="flex flex-col gap-1 text-sm text-neutral-400">
+                <li>Es gratis para siempre (Licencia MIT)</li>
+                <li>Úsalo bajo tu propio riesgo (sin garantía)</li>
+                <li>Respalda tu frase semilla (no podemos recuperarla)</li>
+                <li>Eres responsable del cumplimiento legal</li>
+                <li>No recolectamos tus datos</li>
+                <li>No nos demandes si algo sale mal (es software gratuito)</li>
+              </ul>
+              <p class="text-xs text-neutral-500 mt-3">No confíes, verifica: Lee la <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">Licencia MIT</a> completa y nuestro <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline">código fuente</a>.</p>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <!-- Footer -->
+      <div class="p-6 border-t border-white/5 shrink-0">
+        <button onclick="document.getElementById('terms-modal').close()" class="w-full py-2.5 rounded-lg bg-white/5 border border-white/10 text-sm text-neutral-300 hover:bg-white/10 transition-colors">
+          {t('legal.close')}
+        </button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+  // Close modal when clicking backdrop
+  document.querySelectorAll('dialog').forEach((dialog) => {
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog) {
+        dialog.close();
+      }
+    });
+    // Also close on inner wrapper click (the flex centering div)
+    const wrapper = dialog.querySelector(':scope > div');
+    if (wrapper) {
+      wrapper.addEventListener('click', (e) => {
+        if (e.target === wrapper) {
+          dialog.close();
+        }
+      });
+    }
+  });
+
+  // Wire up all links that point to #privacy or #terms
+  document.querySelectorAll('a[href="#privacy"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      (document.getElementById('privacy-modal') as HTMLDialogElement)?.showModal();
+    });
+  });
+  document.querySelectorAll('a[href="#terms"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      (document.getElementById('terms-modal') as HTMLDialogElement)?.showModal();
+    });
+  });
+</script>
