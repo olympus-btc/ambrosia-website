@@ -1,6 +1,7 @@
 ---
 import { useTranslations } from '../i18n/utils';
 import type { Lang } from '../i18n/ui';
+import { getLocalizedPath } from '../i18n/utils';
 
 interface Props {
   lang: Lang;
@@ -10,59 +11,97 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const currentYear = new Date().getFullYear();
+const NOSTR_URL = 'https://nosta.me/npub1flqcduq8q9rtqen4axufyqjngkml3kdsn4q7tgexldl2lut68k5qag4pt8?t=black';
+const DISCORD_URL = 'https://discord.gg/ZXk2hsRpm2';
 ---
 
 <footer class="border-t border-white/5 bg-neutral-950/80 px-4 py-16 md:px-8 md:pt-16 md:pb-8">
-  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-[1.5fr_2fr] gap-12">
-    <div class="flex flex-col gap-4">
-      <a href={`/${lang}/`} class="flex items-center gap-2 no-underline text-neutral-100 text-xl font-bold tracking-tight hover:text-green-400 transition-colors">
-        <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none">
-          <path d="M50 10 L15 85 L25 85 L50 30 L75 85 L85 85 Z" stroke="currentColor" stroke-width="6" fill="none"/>
-          <path d="M75 85 L90 85" stroke="currentColor" stroke-width="6"/>
-        </svg>
-        <span>Ambrosia</span>
-      </a>
-      <p class="text-neutral-500 text-sm leading-relaxed max-w-[280px]">
-        {t('footer.tagline')}
-      </p>
-    </div>
+  <div class="max-w-6xl mx-auto">
+    <!-- Top: Logo + 4 columns -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
+      <!-- Logo / Brand -->
+      <div class="col-span-2 sm:col-span-4 lg:col-span-1 mb-4 lg:mb-0">
+        <a href={`/${lang}/`} class="flex items-center gap-2 no-underline text-neutral-100 text-xl font-bold tracking-tight hover:text-green-400 transition-colors mb-4">
+          <svg class="w-7 h-7" viewBox="0 0 100 100" fill="none">
+            <path d="M50 10 L15 85 L25 85 L50 30 L75 85 L85 85 Z" stroke="currentColor" stroke-width="6" fill="none"/>
+            <path d="M75 85 L90 85" stroke="currentColor" stroke-width="6"/>
+          </svg>
+          <span>Ambrosia</span>
+        </a>
+        <p class="text-neutral-500 text-sm leading-relaxed max-w-[280px]">
+          {t('footer.tagline')}
+        </p>
+      </div>
 
-    <div class="grid grid-cols-2 sm:grid-cols-3 gap-8">
+      <!-- Product -->
       <div class="flex flex-col gap-3">
         <h4 class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-2">
           {t('footer.product')}
         </h4>
-        <a href="#features" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('nav.features')}</a>
-        <a href="#how-it-works" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('nav.how')}</a>
-        <a href="#download" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('nav.download')}</a>
+        <a href="#features" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.product.features')}</a>
+        <a href="#why-ambrosia" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.product.why')}</a>
+        <a href="#how-it-works" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.product.how')}</a>
+        <a href="#download" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.product.download')}</a>
+        <a href="https://github.com/olympus-btc/ambrosia/releases" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.product.changelog')}</a>
       </div>
 
+      <!-- Resources -->
       <div class="flex flex-col gap-3">
         <h4 class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-2">
           {t('footer.resources')}
         </h4>
-        <a href="https://github.com/AmbrosiaLabs/ambrosia" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">GitHub</a>
-        <a href="https://github.com/AmbrosiaLabs/ambrosia/wiki" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.docs')}</a>
-        <a href="https://github.com/AmbrosiaLabs/ambrosia/releases" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.releases')}</a>
+        <a href="https://tutorial.ambrosiapay.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.resources.tutorial')}</a>
+        <a href="https://dev.ambrosiapay.com/" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.resources.devdocs')}</a>
+        <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.resources.github')}</a>
+        <a href="https://github.com/olympus-btc/ambrosia/issues" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.resources.issues')}</a>
+        <a href="https://github.com/olympus-btc/ambrosia/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.resources.contribute')}</a>
       </div>
 
+      <!-- Community -->
       <div class="flex flex-col gap-3">
         <h4 class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-2">
           {t('footer.community')}
         </h4>
-        <a href="https://twitter.com/AmbrosiaLabs" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">Twitter</a>
-        <a href="https://github.com/AmbrosiaLabs/ambrosia/discussions" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.discussions')}</a>
-        <a href="https://github.com/AmbrosiaLabs/ambrosia/issues" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.issues')}</a>
+        <a href={NOSTR_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.community.nostr')}</a>
+        <span class="text-sm text-neutral-600">{t('footer.community.twitter')} <span class="text-xs italic text-neutral-700">({t('footer.community.soon')})</span></span>
+        <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.community.discord')}</a>
+        <span class="text-sm text-neutral-600">{t('footer.community.telegram')} <span class="text-xs italic text-neutral-700">({t('footer.community.soon')})</span></span>
+      </div>
+
+      <!-- Legal -->
+      <div class="flex flex-col gap-3">
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-neutral-400 mb-2">
+          {t('footer.legal')}
+        </h4>
+        <a href="#privacy" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.legal.privacy')}</a>
+        <a href="#terms" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.legal.terms')}</a>
+        <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.legal.license')}</a>
+        <a href="mailto:contact@ambrosiapay.com" class="text-sm text-neutral-500 no-underline hover:text-green-400 transition-colors">{t('footer.legal.contact')}</a>
       </div>
     </div>
-  </div>
 
-  <div class="max-w-6xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between gap-2 text-center sm:text-left">
-    <p class="text-xs text-neutral-600">
-      &copy; {currentYear} Ambrosia. {t('footer.rights')}
-    </p>
-    <p class="text-xs text-neutral-600">
-      {t('footer.license')}
-    </p>
+    <!-- Divider -->
+    <div class="border-t border-white/5 mt-12 pt-8">
+      <!-- Bottom row -->
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 text-center lg:text-left">
+        <div class="text-xs text-neutral-600">
+          <span>&copy; {currentYear} Ambrosia PoS.</span>
+          <span class="ml-1">{t('footer.copyright')} <a href="https://github.com/olympus-btc/ambrosia/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-green-400 transition-colors underline underline-offset-2">{t('footer.legal.license')}</a>.</span>
+        </div>
+
+        <div class="text-xs text-neutral-600">
+          {t('footer.built')} <a href="https://phoenix.acinq.co/" target="_blank" rel="noopener noreferrer" class="text-neutral-500 hover:text-green-400 transition-colors underline underline-offset-2">phoenixd</a> {t('footer.built.by')} ⚡
+          <span class="mx-1">|</span>
+          {t('footer.powered')}
+        </div>
+
+        <!-- Language switcher -->
+        <div class="flex items-center justify-center lg:justify-end gap-2 text-xs">
+          <a href={getLocalizedPath('en')} class:list={["transition-colors", lang === 'en' ? 'text-green-400 font-semibold' : 'text-neutral-500 hover:text-green-400']}>English</a>
+          <span class="text-neutral-700">|</span>
+          <a href={getLocalizedPath('es')} class:list={["transition-colors", lang === 'es' ? 'text-green-400 font-semibold' : 'text-neutral-500 hover:text-green-400']}>Español</a>
+        </div>
+      </div>
+    </div>
   </div>
 </footer>
