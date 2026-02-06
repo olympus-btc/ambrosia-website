@@ -5,6 +5,7 @@ import Features from '../../components/Features.astro';
 import WhyAmbrosia from '../../components/WhyAmbrosia.astro';
 import HowItWorks from '../../components/HowItWorks.astro';
 import OpenSource from '../../components/OpenSource.astro';
+import Download from '../../components/Download.astro';
 import { useTranslations } from '../../i18n/utils';
 import type { Lang } from '../../i18n/ui';
 import { languages } from '../../i18n/ui';
@@ -29,4 +30,5 @@ const t = useTranslations(lang);
   <WhyAmbrosia lang={lang} />
   <HowItWorks lang={lang} />
   <OpenSource lang={lang} />
+  <Download lang={lang} />
 </Layout>
