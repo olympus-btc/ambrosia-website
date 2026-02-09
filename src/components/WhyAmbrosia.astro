@@ -13,26 +13,33 @@ const rows = [
   'cost',
   'custody',
   'lightning',
-  'ux',
   'maintenance',
+  'permissions',
   'setup',
-  'technical',
+  'business',
   'opensource',
   'kyc',
+  'platform',
 ] as const;
 
-const competitors = ['custodial', 'onchain', 'btcpay', 'mobile', 'ambrosia'] as const;
+const competitors = ['square', 'wosblink', 'btcpay', 'zeus', 'ambrosia'] as const;
+
+const statuses = ['yes', 'no', 'warn', 'fast', 'slow'];
 
 function parseCell(value: string): { status?: string; main: string; sub?: string } {
   const parts = value.split('|');
+
   if (parts.length === 1) {
-    // Check if it starts with a status indicator
-    if (['yes', 'no', 'warn', 'fast', 'slow'].includes(parts[0].split('|')[0])) {
-      return { status: parts[0], main: parts[0] };
-    }
     return { main: parts[0] };
   }
-  return { status: parts[0], main: parts[0], sub: parts[1] };
+
+  if (statuses.includes(parts[0])) {
+    // status|main or status|main|subtitle
+    return { status: parts[0], main: parts[1], sub: parts[2] || undefined };
+  }
+
+  // main|subtitle (no status)
+  return { main: parts[0], sub: parts[1] };
 }
 
 function getStatusIcon(status: string) {
@@ -76,7 +83,7 @@ function getStatusIcon(status: string) {
       </div>
 
       <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-900 pb-4">
-        <table class="w-full min-w-[900px] border-collapse">
+        <table class="w-full min-w-[950px] border-collapse">
           <thead>
             <tr>
               <th class="sticky left-0 z-10 bg-neutral-950/80 backdrop-blur-md p-4 text-left text-sm font-semibold text-neutral-300 border-b border-white/10 min-w-[140px]">
@@ -90,11 +97,6 @@ function getStatusIcon(status: string) {
                     : "bg-neutral-900/50 text-neutral-300 border-white/10"
                 ]}>
                   <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
-                  {(comp === 'custodial' || comp === 'onchain' || comp === 'mobile') && (
-                    <div class="text-xs font-normal text-neutral-500 mt-1">
-                      {t(`why.table.${comp}.sub` as any)}
-                    </div>
-                  )}
                 </th>
               ))}
             </tr>
@@ -125,15 +127,9 @@ function getStatusIcon(status: string) {
                             {statusInfo.icon}
                           </span>
                         )}
-                        {parsed.sub ? (
-                          <>
-                            <span class={isAmbrosia ? "text-green-400" : ""}>{parsed.sub.split('|')[0] || parsed.sub}</span>
-                            {parsed.sub.includes('|') && (
-                              <span class="text-xs text-neutral-500">{parsed.sub.split('|')[1]}</span>
-                            )}
-                          </>
-                        ) : (
-                          <span>{parsed.main}</span>
+                        <span class={isAmbrosia ? "text-green-400" : ""}>{parsed.main}</span>
+                        {parsed.sub && (
+                          <span class="text-xs text-neutral-500">{parsed.sub}</span>
                         )}
                       </div>
                     </td>
