@@ -2,7 +2,6 @@
 import LanguagePicker from './LanguagePicker.astro';
 import { useTranslations } from '../i18n/utils';
 import type { Lang } from '../i18n/ui';
-
 interface Props {
   lang: Lang;
 }
@@ -21,11 +20,7 @@ const navItems = [
 
 <header class="fixed top-0 left-0 right-0 flex justify-between items-center px-4 py-4 md:px-8 z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/5" id="header">
   <a href={`/${lang}/`} class="flex items-center gap-2 no-underline text-neutral-100 hover:text-green-400 transition-colors">
-    <svg class="w-8 h-8" viewBox="0 0 100 100" fill="none">
-      <path d="M50 10 L15 85 L25 85 L50 30 L75 85 L85 85 Z" stroke="currentColor" stroke-width="6" fill="none"/>
-      <path d="M75 85 L90 85" stroke="currentColor" stroke-width="6"/>
-    </svg>
-    <span class="text-xl font-bold tracking-tight">Ambrosia</span>
+    <img src="/logo.png" alt="Ambrosia Logo" class="h-8" />
   </a>
 
   <nav class="hidden lg:flex gap-1">
@@ -55,7 +50,7 @@ const navItems = [
     </button>
   </div>
 
-  <nav class="hidden absolute top-full left-0 right-0 flex-col p-4 bg-neutral-950/95 backdrop-blur-xl border-b border-white/5 lg:!hidden" id="mobile-nav">
+  <nav class="hidden absolute top-full left-0 right-0 flex-col p-4 bg-neutral-950/95 backdrop-blur-xl border-b border-white/5 lg:hidden!" id="mobile-nav">
     {navItems.map(({ key, href }) => (
       <a href={href} class="px-4 py-3.5 text-base font-medium text-neutral-400 no-underline rounded-lg hover:text-neutral-100 hover:bg-white/5 transition-all">
         {t(key as any)}
