@@ -1,1 +1,381 @@
 @import "tailwindcss";
+
+/* ─── Theme tokens (dark = default) ─── */
+:root {
+  /* Surfaces */
+  --surface-base: #0a0a0a;
+  --surface-section: rgba(10, 10, 10, 0.5);
+  --surface-elevated: #171717;
+  --surface-card: rgba(255, 255, 255, 0.02);
+  --surface-overlay: rgba(10, 10, 10, 0.8);
+  --surface-overlay-heavy: rgba(10, 10, 10, 0.95);
+  --surface-interactive: rgba(255, 255, 255, 0.05);
+  --surface-interactive-hover: rgba(255, 255, 255, 0.1);
+  --surface-interactive-hover2: rgba(255, 255, 255, 0.08);
+
+  /* Feature cards */
+  --card-bg: rgba(23, 23, 23, 0.8);
+  --card-bg-hover: rgba(23, 23, 23, 0.9);
+
+  /* Table */
+  --table-header: rgba(23, 23, 23, 0.5);
+  --table-row-even: rgba(23, 23, 23, 0.3);
+  --table-row-odd: rgba(23, 23, 23, 0.1);
+
+  /* Text */
+  --text-heading: #ededed;
+  --text-strong: #e5e5e5;
+  --text-body: #d4d4d4;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-disabled: #525252;
+  --text-faint: #404040;
+  --text-on-accent: #171717;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-strongest: rgba(255, 255, 255, 0.3);
+
+  /* Misc */
+  --code-bg: #171717;
+  --gradient-fade: #0a0a0a;
+  --scrollbar-thumb: #404040;
+  --scrollbar-track: #171717;
+}
+
+/* ─── Light theme overrides ─── */
+.light {
+  --surface-base: #f0fdf4;
+  --surface-section: rgba(220, 252, 231, 0.4);
+  --surface-elevated: #ffffff;
+  --surface-card: #ffffff;
+  --surface-overlay: rgba(240, 253, 244, 0.92);
+  --surface-overlay-heavy: rgba(240, 253, 244, 0.97);
+  --surface-interactive: rgba(22, 163, 74, 0.08);
+  --surface-interactive-hover: rgba(22, 163, 74, 0.14);
+  --surface-interactive-hover2: rgba(22, 163, 74, 0.10);
+
+  --card-bg: #ffffff;
+  --card-bg-hover: #f0fdf4;
+
+  --table-header: rgba(22, 163, 74, 0.06);
+  --table-row-even: rgba(22, 163, 74, 0.03);
+  --table-row-odd: transparent;
+
+  --text-heading: #14532d;
+  --text-strong: #166534;
+  --text-body: #1e3a2c;
+  --text-secondary: #374151;
+  --text-muted: #6b7280;
+  --text-disabled: #9ca3af;
+  --text-faint: #d1d5db;
+  --text-on-accent: #ffffff;
+
+  --border-subtle: rgba(22, 163, 74, 0.1);
+  --border-default: rgba(22, 163, 74, 0.15);
+  --border-medium: rgba(22, 163, 74, 0.2);
+  --border-strong: rgba(22, 163, 74, 0.25);
+  --border-strongest: rgba(22, 163, 74, 0.35);
+
+  --code-bg: #f0fdf4;
+  --gradient-fade: #f0fdf4;
+  --scrollbar-thumb: #86efac;
+  --scrollbar-track: #dcfce7;
+}
+
+/* Light theme card shadows & green accent adjustments */
+.light .feature-card > div:last-child,
+.light [class*="bg-surface-card"],
+.light [class*="bg-card-bg"],
+.light dialog > div > div {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.light [class*="bg-surface-card"]:hover {
+  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1), 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+/* Light mode: feature card hover — hide glow, use shadow lift */
+.light .feature-card > .absolute {
+  display: none;
+}
+
+.light .feature-card > div:last-child {
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.light .feature-card:hover > div:last-child {
+  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.15), 0 4px 8px rgba(0, 0, 0, 0.04);
+  border-color: rgba(22, 163, 74, 0.3);
+  background-color: #ffffff;
+}
+
+.light .feature-card:hover h3 {
+  color: #15803d;
+}
+
+.light .feature-card:hover p {
+  color: #1e3a2c;
+}
+
+/* Light mode: green gradient CTAs use darker green with white text */
+.light [class*="from-green-400"][class*="to-green-600"] {
+  --tw-gradient-from: #16a34a;
+  --tw-gradient-to: #15803d;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
+}
+
+.light [class*="from-green-400"][class*="to-green-600"]:hover {
+  box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
+}
+
+/* Light mode: green-400 accent text uses darker green for contrast */
+.light .text-green-400 {
+  color: #16a34a;
+}
+
+.light .text-green-300 {
+  color: #15803d;
+}
+
+/* Light mode: step numbers — stronger opacity for visibility */
+.light .text-green-400\/20 {
+  color: rgba(22, 163, 74, 0.3);
+}
+
+/* Light mode: green accent backgrounds */
+.light .bg-green-400\/10 {
+  background-color: rgba(22, 163, 74, 0.1);
+}
+
+.light .bg-green-400\/5 {
+  background-color: rgba(22, 163, 74, 0.06);
+}
+
+.light .border-green-400\/30 {
+  border-color: rgba(22, 163, 74, 0.25);
+}
+
+.light .border-green-400\/20 {
+  border-color: rgba(22, 163, 74, 0.18);
+}
+
+/* Light mode: LanguagePicker active state */
+.light .bg-green-400 {
+  background-color: #16a34a;
+  color: #ffffff;
+}
+
+.light .hover\:bg-green-500:hover {
+  background-color: #15803d;
+}
+
+/* Light mode: header & mobile nav backdrop */
+.light header {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom-color: rgba(22, 163, 74, 0.12);
+}
+
+.light #mobile-nav {
+  background-color: rgba(255, 255, 255, 0.97);
+}
+
+/* Light mode: logo needs dark version (original is white) */
+.light img[alt="Ambrosia Logo"] {
+  filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(126deg) brightness(97%) contrast(85%);
+}
+
+/* Light mode: red/yellow accents need darker shades for contrast */
+.light .text-red-400 {
+  color: #dc2626;
+}
+
+.light .text-yellow-400 {
+  color: #ca8a04;
+}
+
+.light .bg-red-400\/5 {
+  background-color: rgba(220, 38, 38, 0.05);
+}
+
+.light .border-red-400\/10 {
+  border-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Light mode: WhyAmbrosia table — stronger Ambrosia column */
+.light #why-ambrosia th.bg-green-400\/10 {
+  background-color: #16a34a;
+  color: #ffffff;
+  border-color: #16a34a;
+}
+
+.light #why-ambrosia td.bg-green-400\/5 {
+  background-color: rgba(22, 163, 74, 0.08);
+  border-left: 2px solid rgba(22, 163, 74, 0.2);
+  border-right: 2px solid rgba(22, 163, 74, 0.2);
+}
+
+.light #why-ambrosia tr:last-child td.bg-green-400\/5 {
+  border-bottom: 2px solid rgba(22, 163, 74, 0.2);
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+/* Light mode: scrollbar */
+.light ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+}
+
+.light ::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+}
+
+/* Light mode: Download section links (changelog, source) */
+.light #download .dl-link {
+  color: #16a34a;
+}
+
+.light #download .dl-link:hover {
+  color: #15803d;
+}
+
+/* Light mode: Download items + help links hover */
+.light #download .dl-item {
+  background-color: #ffffff;
+  border-color: rgba(22, 163, 74, 0.12);
+}
+
+.light #download .dl-item:hover {
+  background-color: rgba(22, 163, 74, 0.08);
+  border-color: rgba(22, 163, 74, 0.3);
+  box-shadow: 0 2px 8px rgba(22, 163, 74, 0.1);
+}
+
+/* Light mode: Verify Your Download card */
+.light #download .bg-green-400\/5.border-green-400\/10 {
+  background-color: #ffffff;
+  border-color: rgba(22, 163, 74, 0.2);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(22, 163, 74, 0.08);
+}
+
+/* Light mode: Footer */
+.light footer {
+  background-color: #ffffff;
+  border-top-color: rgba(22, 163, 74, 0.12);
+}
+
+.light footer a.text-tm {
+  color: #4b5563;
+}
+
+.light footer a.text-tm:hover {
+  color: #15803d;
+}
+
+.light footer .border-b-subtle {
+  border-color: rgba(22, 163, 74, 0.1);
+}
+
+.light footer a.text-tm.underline:hover,
+.light footer a.underline-offset-2:hover {
+  color: #15803d;
+}
+
+/* Light mode: dialog / modals */
+.light dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.light dialog .legal-content a.text-green-400 {
+  color: #15803d;
+  text-decoration: underline;
+  text-decoration-color: rgba(21, 128, 61, 0.3);
+  text-underline-offset: 2px;
+}
+
+.light dialog .legal-content a.text-green-400:hover {
+  color: #166534;
+  text-decoration-color: rgba(22, 101, 52, 0.6);
+}
+
+.light dialog button.bg-surface-interactive {
+  background-color: #16a34a;
+  border-color: #16a34a;
+  color: #ffffff;
+}
+
+.light dialog button.bg-surface-interactive:hover {
+  background-color: #15803d;
+  border-color: #15803d;
+}
+
+.light dialog button.text-tsec {
+  color: #374151;
+}
+
+.light dialog button.text-tsec:hover {
+  color: #15803d;
+  background-color: rgba(22, 163, 74, 0.1);
+}
+
+.light dialog .text-green-400\/80 {
+  color: #16a34a;
+}
+
+.light dialog .text-red-400\/80 {
+  color: #dc2626;
+}
+
+.light dialog .text-yellow-400\/80 {
+  color: #b45309;
+}
+
+/* ─── Register tokens with Tailwind v4 ─── */
+@theme {
+  --color-surface-base: var(--surface-base);
+  --color-surface-section: var(--surface-section);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-card: var(--surface-card);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-surface-overlay-heavy: var(--surface-overlay-heavy);
+  --color-surface-interactive: var(--surface-interactive);
+  --color-surface-interactive-hover: var(--surface-interactive-hover);
+  --color-surface-interactive-hover2: var(--surface-interactive-hover2);
+
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-hover: var(--card-bg-hover);
+
+  --color-table-header: var(--table-header);
+  --color-table-row-even: var(--table-row-even);
+  --color-table-row-odd: var(--table-row-odd);
+
+  --color-th: var(--text-heading);
+  --color-ts: var(--text-strong);
+  --color-tb: var(--text-body);
+  --color-tsec: var(--text-secondary);
+  --color-tm: var(--text-muted);
+  --color-td: var(--text-disabled);
+  --color-tf: var(--text-faint);
+  --color-t-on-accent: var(--text-on-accent);
+
+  --color-b-subtle: var(--border-subtle);
+  --color-b-default: var(--border-default);
+  --color-b-medium: var(--border-medium);
+  --color-b-strong: var(--border-strong);
+  --color-b-strongest: var(--border-strongest);
+
+  --color-code-bg: var(--code-bg);
+  --color-gradient-fade: var(--gradient-fade);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html:has(dialog[open]) {
+  overflow: hidden;
+}

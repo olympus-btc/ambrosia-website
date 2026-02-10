@@ -25,9 +25,19 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
 ---
 
 <!doctype html>
-<html lang={lang} class="bg-neutral-950 text-neutral-100">
+<html lang={lang} class="bg-surface-base text-th">
 	<head>
 		<meta charset="UTF-8" />
+		<script is:inline>
+			(function(){
+				try {
+					var t = localStorage.getItem('theme');
+					if (t === 'light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+						document.documentElement.classList.add('light');
+					}
+				} catch(e){}
+			})();
+		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="canonical" href={canonicalURL} />

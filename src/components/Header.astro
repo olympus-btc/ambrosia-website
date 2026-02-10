@@ -1,5 +1,6 @@
 ---
 import LanguagePicker from './LanguagePicker.astro';
+import ThemeToggle from './ThemeToggle.astro';
 import { useTranslations } from '../i18n/utils';
 import type { Lang } from '../i18n/ui';
 interface Props {
@@ -18,23 +19,24 @@ const navItems = [
 ] as const;
 ---
 
-<header class="fixed top-0 left-0 right-0 flex justify-between items-center px-4 py-4 md:px-8 z-50 bg-neutral-950/80 backdrop-blur-xl border-b border-white/5" id="header">
-  <a href={`/${lang}/`} class="flex items-center gap-2 no-underline text-neutral-100 hover:text-green-400 transition-colors">
+<header class="fixed top-0 left-0 right-0 flex justify-between items-center px-4 py-4 md:px-8 z-50 bg-surface-overlay backdrop-blur-xl border-b border-b-subtle" id="header">
+  <a href={`/${lang}/`} class="flex items-center gap-2 no-underline text-th hover:text-green-400 transition-colors">
     <img src="/logo.png" alt="Ambrosia Logo" class="h-8" />
   </a>
 
   <nav class="hidden lg:flex gap-1">
     {navItems.map(({ key, href }) => (
-      <a href={href} class="px-4 py-2 text-sm font-medium text-neutral-400 no-underline rounded-md hover:text-neutral-100 hover:bg-white/5 transition-all">
+      <a href={href} class="px-4 py-2 text-sm font-medium text-tsec no-underline rounded-md hover:text-th hover:bg-surface-interactive transition-all">
         {t(key as any)}
       </a>
     ))}
   </nav>
 
   <div class="flex items-center gap-3">
+    <ThemeToggle />
     <LanguagePicker lang={lang} />
     <button
-      class="flex lg:hidden items-center justify-center w-10 h-10 bg-white/5 border border-white/10 rounded-lg text-neutral-100 cursor-pointer hover:bg-white/10 transition-all"
+      class="flex lg:hidden items-center justify-center w-10 h-10 bg-surface-interactive border border-b-default rounded-lg text-th cursor-pointer hover:bg-surface-interactive-hover transition-all"
       aria-label="Menu"
       id="mobile-menu-btn"
     >
@@ -50,9 +52,9 @@ const navItems = [
     </button>
   </div>
 
-  <nav class="hidden absolute top-full left-0 right-0 flex-col p-4 bg-neutral-950/95 backdrop-blur-xl border-b border-white/5 lg:hidden!" id="mobile-nav">
+  <nav class="hidden absolute top-full left-0 right-0 flex-col p-4 bg-surface-overlay-heavy backdrop-blur-xl border-b border-b-subtle lg:hidden!" id="mobile-nav">
     {navItems.map(({ key, href }) => (
-      <a href={href} class="px-4 py-3.5 text-base font-medium text-neutral-400 no-underline rounded-lg hover:text-neutral-100 hover:bg-white/5 transition-all">
+      <a href={href} class="px-4 py-3.5 text-base font-medium text-tsec no-underline rounded-lg hover:text-th hover:bg-surface-interactive transition-all">
         {t(key as any)}
       </a>
     ))}

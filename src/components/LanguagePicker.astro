@@ -9,15 +9,15 @@ interface Props {
 const { lang } = Astro.props;
 ---
 
-<nav class="flex gap-0.5 bg-white/5 p-1 rounded-lg border border-white/10">
+<nav class="flex gap-0.5 bg-surface-interactive p-1 rounded-lg border border-b-default">
   {Object.entries(languages).map(([code, label]) => (
     <a
       href={`/${code}/`}
       class:list={[
         'px-3 py-1.5 text-xs font-medium no-underline rounded-md transition-all tracking-wider',
         code === lang
-          ? 'text-neutral-900 bg-green-400 hover:bg-green-500'
-          : 'text-neutral-400 hover:text-neutral-100 hover:bg-white/5'
+          ? 'text-t-on-accent bg-green-400 hover:bg-green-500'
+          : 'text-tsec hover:text-th hover:bg-surface-interactive'
       ]}
       aria-current={code === lang ? 'page' : undefined}
     >

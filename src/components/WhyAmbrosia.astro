@@ -60,14 +60,14 @@ function getStatusIcon(status: string) {
 }
 ---
 
-<section id="why-ambrosia" class="py-20 md:py-28 px-4 md:px-8 bg-neutral-950/50">
+<section id="why-ambrosia" class="py-20 md:py-28 px-4 md:px-8 bg-surface-section">
   <div class="max-w-7xl mx-auto">
     <!-- Header -->
     <div class="text-center mb-12 md:mb-16">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-100 mb-4 px-2">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-th mb-4 px-2">
         {t('why.header')}
       </h2>
-      <p class="text-base md:text-lg lg:text-xl text-neutral-400 max-w-3xl mx-auto px-2">
+      <p class="text-base md:text-lg lg:text-xl text-tsec max-w-3xl mx-auto px-2">
         {t('why.subheader')}
       </p>
     </div>
@@ -75,26 +75,26 @@ function getStatusIcon(status: string) {
     <!-- Comparison Table -->
     <div class="relative">
       <!-- Scroll hint for mobile/tablet -->
-      <div class="lg:hidden text-center text-neutral-500 text-sm mb-3 flex items-center justify-center gap-2">
+      <div class="lg:hidden text-center text-tm text-sm mb-3 flex items-center justify-center gap-2">
         <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
         <span>Scroll to compare</span>
       </div>
 
-      <div class="overflow-x-auto scrollbar-thin scrollbar-thumb-neutral-700 scrollbar-track-neutral-900 pb-4">
-        <table class="w-full min-w-[950px] border-collapse">
+      <div class="overflow-x-auto pb-4">
+        <table class="w-full min-w-237.5 border-collapse">
           <thead>
             <tr>
-              <th class="sticky left-0 z-10 bg-neutral-950/80 backdrop-blur-md p-4 text-left text-sm font-semibold text-neutral-300 border-b border-white/10 min-w-[140px]">
+              <th class="sticky left-0 z-10 bg-surface-overlay backdrop-blur-md p-4 text-left text-sm font-semibold text-tb border-b border-b-default min-w-35">
                 {t('why.table.feature')}
               </th>
               {competitors.map((comp) => (
                 <th class:list={[
-                  "p-4 text-center text-sm font-semibold border-b min-w-[160px]",
+                  "p-4 text-center text-sm font-semibold border-b min-w-40",
                   comp === 'ambrosia'
                     ? "bg-green-400/10 text-green-400 border-green-400/30"
-                    : "bg-neutral-900/50 text-neutral-300 border-white/10"
+                    : "bg-table-header text-tb border-b-default"
                 ]}>
                   <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
                 </th>
@@ -103,8 +103,8 @@ function getStatusIcon(status: string) {
           </thead>
           <tbody>
             {rows.map((row, idx) => (
-              <tr class={idx % 2 === 0 ? 'bg-neutral-900/30' : 'bg-neutral-900/10'}>
-                <td class="sticky left-0 z-10 p-4 text-sm font-medium text-neutral-200 border-b border-white/5 bg-neutral-950/80 backdrop-blur-md">
+              <tr class={idx % 2 === 0 ? 'bg-table-row-even' : 'bg-table-row-odd'}>
+                <td class="sticky left-0 z-10 p-4 text-sm font-medium text-ts border-b border-b-subtle bg-surface-overlay backdrop-blur-md">
                   {t(`why.row.${row}` as any)}
                 </td>
                 {competitors.map((comp) => {
@@ -115,12 +115,12 @@ function getStatusIcon(status: string) {
 
                   return (
                     <td class:list={[
-                      "p-4 text-center text-sm border-b border-white/5",
+                      "p-4 text-center text-sm border-b border-b-subtle",
                       isAmbrosia ? "bg-green-400/5" : ""
                     ]}>
                       <div class:list={[
                         "flex flex-col items-center gap-1",
-                        isAmbrosia ? "font-semibold text-green-400" : "text-neutral-300"
+                        isAmbrosia ? "font-semibold text-green-400" : "text-tb"
                       ]}>
                         {statusInfo && (
                           <span class={`text-lg ${statusInfo.class}`}>
@@ -129,7 +129,7 @@ function getStatusIcon(status: string) {
                         )}
                         <span class={isAmbrosia ? "text-green-400" : ""}>{parsed.main}</span>
                         {parsed.sub && (
-                          <span class="text-xs text-neutral-500">{parsed.sub}</span>
+                          <span class="text-xs text-tm">{parsed.sub}</span>
                         )}
                       </div>
                     </td>
@@ -142,7 +142,7 @@ function getStatusIcon(status: string) {
       </div>
 
       <!-- Gradient fade on right edge (mobile/tablet) -->
-      <div class="absolute top-0 right-0 bottom-0 w-8 bg-gradient-to-l from-neutral-950 to-transparent pointer-events-none lg:hidden"></div>
+      <div class="absolute top-0 right-0 bottom-0 w-8 bg-linear-to-l from-gradient-fade to-transparent pointer-events-none lg:hidden"></div>
     </div>
   </div>
 </section>
