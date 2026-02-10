@@ -113,7 +113,8 @@ const t = useTranslations(lang);
     else return;
 
     var arch = 'x64';
-    if (/arm64|aarch64/i.test(ua)) {
+    var plat = navigator.platform || '';
+    if (/arm64|aarch64/i.test(ua) || /arm64|aarch64/i.test(plat)) {
       arch = 'arm64';
     } else if (os === 'macOS' || os === 'Windows') {
       try {

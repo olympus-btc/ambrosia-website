@@ -32,7 +32,7 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
 			(function(){
 				try {
 					var t = localStorage.getItem('theme');
-					if (t === 'light' || (!t && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+					if (t === 'light') {
 						document.documentElement.classList.add('light');
 					}
 				} catch(e){}
