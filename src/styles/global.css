@@ -1,5 +1,129 @@
 @import "tailwindcss";
 
+/* ─── Theme tokens (dark = default) ─── */
+:root {
+  /* Surfaces */
+  --surface-base: #0a0a0a;
+  --surface-section: rgba(10, 10, 10, 0.5);
+  --surface-elevated: #171717;
+  --surface-card: rgba(255, 255, 255, 0.02);
+  --surface-overlay: rgba(10, 10, 10, 0.8);
+  --surface-overlay-heavy: rgba(10, 10, 10, 0.95);
+  --surface-interactive: rgba(255, 255, 255, 0.05);
+  --surface-interactive-hover: rgba(255, 255, 255, 0.1);
+  --surface-interactive-hover2: rgba(255, 255, 255, 0.08);
+
+  /* Feature cards */
+  --card-bg: rgba(23, 23, 23, 0.8);
+  --card-bg-hover: rgba(23, 23, 23, 0.9);
+
+  /* Table */
+  --table-header: rgba(23, 23, 23, 0.5);
+  --table-row-even: rgba(23, 23, 23, 0.3);
+  --table-row-odd: rgba(23, 23, 23, 0.1);
+
+  /* Text */
+  --text-heading: #ededed;
+  --text-strong: #e5e5e5;
+  --text-body: #d4d4d4;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-disabled: #525252;
+  --text-faint: #404040;
+  --text-on-accent: #171717;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.05);
+  --border-default: rgba(255, 255, 255, 0.1);
+  --border-medium: rgba(255, 255, 255, 0.15);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --border-strongest: rgba(255, 255, 255, 0.3);
+
+  /* Misc */
+  --code-bg: #171717;
+  --gradient-fade: #0a0a0a;
+  --scrollbar-thumb: #404040;
+  --scrollbar-track: #171717;
+}
+
+/* ─── Light theme overrides ─── */
+.light {
+  --surface-base: #fafafa;
+  --surface-section: rgba(243, 244, 246, 0.6);
+  --surface-elevated: #ffffff;
+  --surface-card: rgba(0, 0, 0, 0.02);
+  --surface-overlay: rgba(255, 255, 255, 0.85);
+  --surface-overlay-heavy: rgba(255, 255, 255, 0.95);
+  --surface-interactive: rgba(0, 0, 0, 0.04);
+  --surface-interactive-hover: rgba(0, 0, 0, 0.08);
+  --surface-interactive-hover2: rgba(0, 0, 0, 0.06);
+
+  --card-bg: rgba(0, 0, 0, 0.03);
+  --card-bg-hover: rgba(0, 0, 0, 0.05);
+
+  --table-header: rgba(0, 0, 0, 0.03);
+  --table-row-even: rgba(0, 0, 0, 0.02);
+  --table-row-odd: rgba(0, 0, 0, 0.005);
+
+  --text-heading: #171717;
+  --text-strong: #262626;
+  --text-body: #404040;
+  --text-secondary: #525252;
+  --text-muted: #737373;
+  --text-disabled: #a3a3a3;
+  --text-faint: #d4d4d4;
+  --text-on-accent: #171717;
+
+  --border-subtle: rgba(0, 0, 0, 0.06);
+  --border-default: rgba(0, 0, 0, 0.1);
+  --border-medium: rgba(0, 0, 0, 0.12);
+  --border-strong: rgba(0, 0, 0, 0.15);
+  --border-strongest: rgba(0, 0, 0, 0.2);
+
+  --code-bg: #f5f5f5;
+  --gradient-fade: #fafafa;
+  --scrollbar-thumb: #d4d4d4;
+  --scrollbar-track: #f5f5f5;
+}
+
+/* ─── Register tokens with Tailwind v4 ─── */
+@theme {
+  --color-surface-base: var(--surface-base);
+  --color-surface-section: var(--surface-section);
+  --color-surface-elevated: var(--surface-elevated);
+  --color-surface-card: var(--surface-card);
+  --color-surface-overlay: var(--surface-overlay);
+  --color-surface-overlay-heavy: var(--surface-overlay-heavy);
+  --color-surface-interactive: var(--surface-interactive);
+  --color-surface-interactive-hover: var(--surface-interactive-hover);
+  --color-surface-interactive-hover2: var(--surface-interactive-hover2);
+
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-hover: var(--card-bg-hover);
+
+  --color-table-header: var(--table-header);
+  --color-table-row-even: var(--table-row-even);
+  --color-table-row-odd: var(--table-row-odd);
+
+  --color-th: var(--text-heading);
+  --color-ts: var(--text-strong);
+  --color-tb: var(--text-body);
+  --color-tsec: var(--text-secondary);
+  --color-tm: var(--text-muted);
+  --color-td: var(--text-disabled);
+  --color-tf: var(--text-faint);
+  --color-t-on-accent: var(--text-on-accent);
+
+  --color-b-subtle: var(--border-subtle);
+  --color-b-default: var(--border-default);
+  --color-b-medium: var(--border-medium);
+  --color-b-strong: var(--border-strong);
+  --color-b-strongest: var(--border-strongest);
+
+  --color-code-bg: var(--code-bg);
+  --color-gradient-fade: var(--gradient-fade);
+}
+
 html {
   scroll-behavior: smooth;
 }
