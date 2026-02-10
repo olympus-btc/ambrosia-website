@@ -57,13 +57,14 @@ const t = useTranslations(lang);
     </div>
 
     <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-3 md:mt-4 w-full sm:w-auto px-4 sm:px-0">
-      <a href="#download" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg w-full sm:w-auto hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]">
+      <a href="#download" id="hero-download" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg w-full sm:w-auto hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
           <line x1="12" y1="15" x2="12" y2="3"></line>
         </svg>
         {t('hero.cta.download')}
+        <span id="hero-download-label" class="text-xs font-normal opacity-80 hidden">|</span>
       </a>
       <a href="https://github.com/olympus-btc/ambrosia" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-transparent text-th font-medium text-base border border-b-strong rounded-lg w-full sm:w-auto hover:bg-surface-interactive hover:border-b-strongest transition-all">
         {t('hero.cta.github')}
@@ -90,3 +91,49 @@ const t = useTranslations(lang);
                 radial-gradient(ellipse at 20% 80%, rgba(163,230,53,0.15) 0%, transparent 45%);
   }
 </style>
+
+<script is:inline>
+  (function() {
+    var ua = navigator.userAgent;
+    var btn = document.getElementById('hero-download');
+    var label = document.getElementById('hero-download-label');
+    if (!btn) return;
+
+    // Mobile — keep #download fallback
+    if (/Android|iPhone|iPad|iPod/i.test(ua)) return;
+
+    var VERSION = '0.5.1-alpha';
+    var BASE = 'https://github.com/olympus-btc/ambrosia/releases/download/v' + VERSION + '/ambrosia-app-' + VERSION + '-';
+
+    var os, ext;
+
+    if (/Win/i.test(ua)) { os = 'Windows'; ext = 'exe'; }
+    else if (/Mac/i.test(ua)) { os = 'macOS'; ext = 'dmg'; }
+    else if (/Linux/i.test(ua)) { os = 'Linux'; ext = 'deb'; }
+    else return;
+
+    var arch = 'x64';
+    if (/arm64|aarch64/i.test(ua)) {
+      arch = 'arm64';
+    } else if (os === 'macOS' || os === 'Windows') {
+      try {
+        var canvas = document.createElement('canvas');
+        var gl = canvas.getContext('webgl');
+        if (gl) {
+          var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+          if (dbg) {
+            var renderer = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL);
+            if (/Apple M|Apple GPU/i.test(renderer)) arch = 'arm64';
+            if (/Qualcomm|Adreno|Snapdragon/i.test(renderer)) arch = 'arm64';
+          }
+        }
+      } catch(e) {}
+    }
+
+    btn.href = BASE + arch + '.' + ext;
+    if (label) {
+      label.textContent = '| ' + os + ' ' + arch;
+      label.classList.remove('hidden');
+    }
+  })();
+</script>
