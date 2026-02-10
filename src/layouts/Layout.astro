@@ -9,13 +9,18 @@ interface Props {
   lang?: Lang;
   title?: string;
   description?: string;
+  ogImage?: string;
 }
 
 const {
   lang = 'en',
   title = 'Ambrosia',
   description = 'Open source point of sale for Bitcoin Lightning',
+  ogImage = '/og-image.png',
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
+const ogImageURL = new URL(ogImage, Astro.site ?? 'https://ambrosiapay.com').href;
 ---
 
 <!doctype html>
@@ -24,9 +29,26 @@ const {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="canonical" href={canonicalURL} />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
+
+		<!-- Open Graph -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+		<meta property="og:site_name" content="Ambrosia PoS" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImageURL} />
+		<meta name="twitter:site" content="@AmbrosiaPoS" />
 	</head>
 	<body class="min-h-screen font-sans antialiased">
 		<Header lang={lang} />
