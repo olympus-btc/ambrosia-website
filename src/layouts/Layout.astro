@@ -16,11 +16,12 @@ const {
   lang = 'en',
   title = 'Ambrosia',
   description = 'Open source point of sale for Bitcoin Lightning',
-  ogImage = '/og-image.png',
+  ogImage,
 } = Astro.props;
 
+const defaultOgImage = lang === 'es' ? '/og-image-es.png' : '/og-image.png';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
-const ogImageURL = new URL(ogImage, Astro.site ?? 'https://ambrosiapay.com').href;
+const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://ambrosiapay.com').href;
 ---
 
 <!doctype html>
