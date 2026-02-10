@@ -294,7 +294,7 @@ export const ui = {
     'footer.powered': 'Powered by Bitcoin Lightning Network',
 
     // Meta
-    'meta.title': 'Ambrosia - Accept Bitcoin Lightning Payments',
+    'meta.title': 'Ambrosia PoS - Open Source Bitcoin Lightning Point of Sale',
     'meta.description': 'Open source point of sale for Bitcoin Lightning. Run your own Phoenixd node. No custody, no KYC, no subscriptions.',
   },
   es: {
@@ -585,7 +585,7 @@ export const ui = {
     'footer.powered': 'Impulsado por Bitcoin Lightning Network',
 
     // Meta
-    'meta.title': 'Ambrosia - Acepta Pagos Bitcoin Lightning',
+    'meta.title': 'Ambrosia PoS - Punto de Venta Open Source Bitcoin Lightning',
     'meta.description': 'Punto de venta open source para Bitcoin Lightning. Corre tu propio nodo Phoenixd. Sin custodia, sin KYC, sin suscripciones.',
   },
 } as const;
