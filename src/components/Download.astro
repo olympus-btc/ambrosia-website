@@ -24,21 +24,21 @@ const platforms = [
       {
         labelKey: 'dl.linux.x64',
         files: [
-          { ext: '.deb', label: 'Ubuntu, Debian, Linux Mint', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-x64.deb` },
-          { ext: '.rpm', label: 'Fedora, RHEL, openSUSE', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-x64.rpm` },
-          { ext: '.tar.gz', label: 'Universal Linux', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-x64.tar.gz` },
+          { ext: '.deb', label: 'Ubuntu, Debian, Linux Mint', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-x64.deb` },
+          { ext: '.rpm', label: 'Fedora, RHEL, openSUSE', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-x64.rpm` },
+          { ext: '.tar.gz', label: 'Universal Linux', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-x64.tar.gz` },
         ],
       },
       {
         labelKey: 'dl.linux.arm',
         files: [
-          { ext: '.deb', label: 'Ubuntu, Debian, Raspberry Pi OS', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-arm64.deb` },
-          { ext: '.rpm', label: 'Fedora ARM', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-arm64.rpm` },
-          { ext: '.tar.gz', label: 'Universal ARM', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-arm64.tar.gz` },
+          { ext: '.deb', label: 'Ubuntu, Debian, Raspberry Pi OS', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-arm64.deb` },
+          { ext: '.rpm', label: 'Fedora ARM', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-arm64.rpm` },
+          { ext: '.tar.gz', label: 'Universal ARM', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-arm64.tar.gz` },
         ],
       },
     ],
-    verifyCmd: `sha256sum AmbrosiaPoS-${VERSION_SHORT}-x64.deb`,
+    verifyCmd: `sha256sum ambrosia-app-${VERSION_SHORT}-x64.deb`,
   },
   {
     id: 'windows',
@@ -48,17 +48,17 @@ const platforms = [
       {
         labelKey: 'dl.windows.x64',
         files: [
-          { ext: '.exe', label: 'Windows 10/11 Installer', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-x64.exe` },
+          { ext: '.exe', label: 'Windows 10/11 Installer', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-x64.exe` },
         ],
       },
       {
         labelKey: 'dl.windows.arm',
         files: [
-          { ext: '.exe', label: 'Windows 10/11 ARM Installer', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-arm64.exe` },
+          { ext: '.exe', label: 'Windows 10/11 ARM Installer', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-arm64.exe` },
         ],
       },
     ],
-    verifyCmd: `Get-FileHash AmbrosiaPoS-${VERSION_SHORT}-x64.exe -Algorithm SHA256`,
+    verifyCmd: `Get-FileHash ambrosia-app-${VERSION_SHORT}-x64.exe -Algorithm SHA256`,
   },
   {
     id: 'macos',
@@ -68,17 +68,17 @@ const platforms = [
       {
         labelKey: 'dl.macos.x64',
         files: [
-          { ext: '.dmg', label: 'macOS 11+ Installer', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-x64.dmg` },
+          { ext: '.dmg', label: 'macOS 11+ Installer', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-x64.dmg` },
         ],
       },
       {
         labelKey: 'dl.macos.arm',
         files: [
-          { ext: '.dmg', label: 'macOS 11+ Installer', url: `${BASE_URL}/AmbrosiaPoS-${VERSION_SHORT}-arm64.dmg` },
+          { ext: '.dmg', label: 'macOS 11+ Installer', url: `${BASE_URL}/ambrosia-app-${VERSION_SHORT}-arm64.dmg` },
         ],
       },
     ],
-    verifyCmd: `shasum -a 256 AmbrosiaPoS-${VERSION_SHORT}-arm64.dmg`,
+    verifyCmd: `shasum -a 256 ambrosia-app-${VERSION_SHORT}-arm64.dmg`,
   },
 ];
 ---
