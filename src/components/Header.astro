@@ -26,7 +26,7 @@ const navItems = [
 
   <nav class="hidden lg:flex gap-1">
     {navItems.map(({ key, href }) => (
-      <a href={href} {...(href === '#download' ? { 'data-download': 'nav-download' } : {})} class="px-4 py-2 text-sm font-medium text-tsec no-underline rounded-md hover:text-th hover:bg-surface-interactive transition-all">
+      <a href={href} class="px-4 py-2 text-sm font-medium text-tsec no-underline rounded-md hover:text-th hover:bg-surface-interactive transition-all">
         {t(key as any)}
       </a>
     ))}
@@ -54,7 +54,7 @@ const navItems = [
 
   <nav class="hidden absolute top-full left-0 right-0 flex-col p-4 bg-surface-overlay-heavy backdrop-blur-xl border-b border-b-subtle lg:hidden!" id="mobile-nav">
     {navItems.map(({ key, href }) => (
-      <a href={href} {...(href === '#download' ? { 'data-download': 'nav-download-mobile' } : {})} class="px-4 py-3.5 text-base font-medium text-tsec no-underline rounded-lg hover:text-th hover:bg-surface-interactive transition-all">
+      <a href={href} class="px-4 py-3.5 text-base font-medium text-tsec no-underline rounded-lg hover:text-th hover:bg-surface-interactive transition-all">
         {t(key as any)}
       </a>
     ))}

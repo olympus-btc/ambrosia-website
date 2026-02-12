@@ -57,7 +57,7 @@ const t = useTranslations(lang);
     </div>
 
     <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-3 md:mt-4 w-full sm:w-auto px-4 sm:px-0">
-      <a href="#download" id="hero-download" data-download="hero" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg w-full sm:w-auto hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]">
+      <a href="#download" id="hero-download" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg w-full sm:w-auto hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]">
         <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
@@ -113,7 +113,6 @@ const t = useTranslations(lang);
 
     function setDownload(arch) {
       btn.href = BASE + arch + '.' + ext;
-      btn.dataset.download = 'hero-' + os.toLowerCase() + '-' + arch;
       if (label) {
         label.textContent = '| ' + os + ' ' + arch;
         label.classList.remove('hidden');
