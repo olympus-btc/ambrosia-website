@@ -138,7 +138,7 @@ const platforms = [
               <h4 class="text-sm font-semibold text-tb mb-3">{t(arch.labelKey as any)}</h4>
               <div class="flex flex-col gap-2">
                 {arch.files.map((file) => (
-                  <a href={file.url} class="dl-item group flex items-center gap-3 p-3 rounded-lg bg-surface-card border border-b-subtle hover:bg-green-400/5 hover:border-green-400/20 transition-all">
+                  <a href={file.url} data-download={`${platform.id}-${file.url.split('/').pop()}`} class="dl-item group flex items-center gap-3 p-3 rounded-lg bg-surface-card border border-b-subtle hover:bg-green-400/5 hover:border-green-400/20 transition-all">
                     <svg class="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                       <polyline points="7 10 12 15 17 10"/>
