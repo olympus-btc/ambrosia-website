@@ -47,6 +47,7 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
 		<link rel="icon" href="/favicon.ico" />
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="description" content={description} />
+		<meta name="robots" content="index, follow" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 
@@ -65,6 +66,9 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={ogImageURL} />
 		<meta name="twitter:site" content="@AmbrosiaPoS" />
+		<meta name="twitter:creator" content="@AmbrosiaPoS" />
+		<meta name="twitter:url" content={canonicalURL} />
+		<meta name="twitter:domain" content="ambrosiapay.com" />
 	</head>
 	<body class="min-h-screen font-sans antialiased">
 		<Header lang={lang} />
