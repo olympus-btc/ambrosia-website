@@ -44,7 +44,8 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
 			async>
 		</script>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href="/favicon.ico" sizes="any" />
+		<link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="description" content={description} />
 		<meta name="robots" content="index, follow" />
