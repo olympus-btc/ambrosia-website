@@ -10,6 +10,7 @@ interface Props {
   title?: string;
   description?: string;
   ogImage?: string;
+  canonicalURL?: string;
 }
 
 const {
@@ -17,10 +18,13 @@ const {
   title = 'Ambrosia',
   description = 'Open source point of sale for Bitcoin Lightning',
   ogImage,
+  canonicalURL: canonicalOverride,
 } = Astro.props;
 
 const defaultOgImage = lang === 'es' ? '/og-image-es.png' : '/og-image.png';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
+const canonicalURL = canonicalOverride
+  ? new URL(canonicalOverride, Astro.site ?? 'https://ambrosiapay.com')
+  : new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
 const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://ambrosiapay.com').href;
 ---
 

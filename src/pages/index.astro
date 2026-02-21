@@ -1,5 +1,27 @@
 ---
-import { defaultLang } from '../i18n/ui';
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Features from '../components/Features.astro';
+import WhyAmbrosia from '../components/WhyAmbrosia.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import OpenSource from '../components/OpenSource.astro';
+import Download from '../components/Download.astro';
+import { useTranslations } from '../i18n/utils';
 
-return Astro.redirect(`/${defaultLang}/`);
+const lang = 'en';
+const t = useTranslations(lang);
 ---
+
+<Layout
+  lang={lang}
+  title={t('meta.title')}
+  description={t('meta.description')}
+  canonicalURL="/en/"
+>
+  <Hero lang={lang} />
+  <Features lang={lang} />
+  <WhyAmbrosia lang={lang} />
+  <HowItWorks lang={lang} />
+  <OpenSource lang={lang} />
+  <Download lang={lang} />
+</Layout>
