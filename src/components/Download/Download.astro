@@ -1,6 +1,7 @@
 ---
-import { useTranslations } from '../i18n/utils';
-import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
+import { fetchLatestRelease, findAssetByPattern, buildVerifyCommand } from './releases';
 
 interface Props {
   lang: Lang;
@@ -12,25 +13,8 @@ const t = useTranslations(lang);
 const RELEASES_URL = 'https://github.com/olympus-btc/ambrosia/releases';
 const REPO_URL = 'https://github.com/olympus-btc/ambrosia';
 
-let VERSION = 'v0.6.0-beta';
-let assets: Array<{ name: string; browser_download_url: string }> = [];
-
-try {
-  const res = await fetch('https://api.github.com/repos/olympus-btc/ambrosia/releases/latest', {
-    headers: { Accept: 'application/vnd.github+json' },
-  });
-  if (res.ok) {
-    const release = await res.json();
-    VERSION = release.tag_name ?? VERSION;
-    assets = release.assets ?? [];
-  }
-} catch {}
-
-const VERSION_SHORT = VERSION.replace(/^v/, '');
-
-function assetUrl(pattern: RegExp): string {
-  return assets.find((a) => pattern.test(a.name))?.browser_download_url ?? '#';
-}
+const { version: VERSION, assets } = await fetchLatestRelease();
+const assetUrl = (pattern: RegExp) => findAssetByPattern(assets, pattern);
 
 const platforms = [
   {
@@ -55,7 +39,7 @@ const platforms = [
         ],
       },
     ],
-    verifyCmd: `sha256sum ambrosia-pos_${VERSION_SHORT}_amd64.deb`,
+    verifyCmd: buildVerifyCommand('linux', VERSION),
   },
   {
     id: 'windows',
@@ -77,7 +61,7 @@ const platforms = [
         ],
       },
     ],
-    verifyCmd: `Get-FileHash ambrosia-pos-${VERSION_SHORT}-x64-setup.exe -Algorithm SHA256`,
+    verifyCmd: buildVerifyCommand('windows', VERSION),
   },
   {
     id: 'macos',
@@ -93,7 +77,7 @@ const platforms = [
         files: [{ ext: '.dmg', label: 'macOS 11+ Installer', url: assetUrl(/ambrosia-pos.*-arm64\.dmg$/) }],
       },
     ],
-    verifyCmd: `shasum -a 256 ambrosia-pos-${VERSION_SHORT}-arm64.dmg`,
+    verifyCmd: buildVerifyCommand('macos', VERSION),
   },
 ];
 ---
