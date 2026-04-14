@@ -1,13 +1,13 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Hero from '../../components/Hero/Hero.astro';
-import Features from '../../components/Features.astro';
-import WhyAmbrosia from '../../components/WhyAmbrosia/WhyAmbrosia.astro';
-import HowItWorks from '../../components/HowItWorks.astro';
-import OpenSource from '../../components/OpenSource.astro';
-import Download from '../../components/Download/Download.astro';
-import { useTranslations } from '../../i18n/utils';
-import { languages, type Lang } from '../../i18n/ui';
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero/Hero.astro';
+import Features from '@components/Features.astro';
+import WhyAmbrosia from '@components/WhyAmbrosia/WhyAmbrosia.astro';
+import HowItWorks from '@components/HowItWorks.astro';
+import OpenSource from '@components/OpenSource.astro';
+import Download from '@components/Download/Download.astro';
+import { useTranslations } from '@i18n/utils';
+import { languages, type Lang } from '@i18n/ui';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
