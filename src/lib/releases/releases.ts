@@ -9,17 +9,17 @@ export interface GithubRelease {
 }
 
 export interface DownloadUrls {
-  winX64: string;
-  winArm64: string;
-  macX64: string;
-  macArm64: string;
+  winX64: string | undefined;
+  winArm64: string | undefined;
+  macX64: string | undefined;
+  macArm64: string | undefined;
 }
 
 const FALLBACK_VERSION = 'v0.6.0-beta';
 const GITHUB_API_URL = 'https://api.github.com/repos/olympus-btc/ambrosia/releases/latest';
 
-export function findAssetByPattern(assets: ReleaseAsset[], pattern: RegExp): string {
-  return assets.find((a) => pattern.test(a.name))?.browser_download_url ?? '#';
+export function findAssetByPattern(assets: ReleaseAsset[], pattern: RegExp): string | undefined {
+  return assets.find((a) => pattern.test(a.name))?.browser_download_url;
 }
 
 export function stripVersionPrefix(version: string): string {

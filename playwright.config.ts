@@ -23,8 +23,6 @@ export default defineConfig({
     },
   ],
   webServer: {
-    // Use the production build so the GitHub API is called once at build time,
-    // not on every request (which causes rate-limiting with parallel tests)
     command: 'npm run build && npm run preview',
     url: 'http://localhost:4321',
     reuseExistingServer: false,

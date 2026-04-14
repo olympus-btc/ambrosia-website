@@ -13,5 +13,5 @@ export function useTranslations(lang: Lang) {
 }
 
 export function getLocalizedPath(lang: Lang, path: string = ''): string {
-  return `/${lang}${path}`;
+  return `/${lang}/${path}`.replace(/\/{2,}/g, '/');
 }

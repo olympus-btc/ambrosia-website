@@ -24,24 +24,28 @@ describe('getLangFromUrl', () => {
 });
 
 describe('getLocalizedPath', () => {
-  it('builds english path', () => {
-    expect(getLocalizedPath('en')).toBe('/en');
+  it('builds english path with trailing slash', () => {
+    expect(getLocalizedPath('en')).toBe('/en/');
   });
 
-  it('builds spanish path', () => {
-    expect(getLocalizedPath('es')).toBe('/es');
+  it('builds spanish path with trailing slash', () => {
+    expect(getLocalizedPath('es')).toBe('/es/');
   });
 
   it('appends path segment', () => {
     expect(getLocalizedPath('en', '/download')).toBe('/en/download');
   });
 
-  it('handles empty path', () => {
-    expect(getLocalizedPath('en', '')).toBe('/en');
+  it('handles empty path with trailing slash', () => {
+    expect(getLocalizedPath('en', '')).toBe('/en/');
   });
 
   it('handles nested path', () => {
     expect(getLocalizedPath('es', '/blog/post')).toBe('/es/blog/post');
+  });
+
+  it('does not produce double slashes', () => {
+    expect(getLocalizedPath('en', '/section')).toBe('/en/section');
   });
 });
 

@@ -57,12 +57,12 @@ describe('findAssetByPattern', () => {
     expect(findAssetByPattern(mockAssets, /ambrosia-pos.*-arm64\.dmg$/)).toBe('https://example.com/mac-arm64.dmg');
   });
 
-  it('returns # when no asset matches', () => {
-    expect(findAssetByPattern(mockAssets, /nonexistent\.pkg$/)).toBe('#');
+  it('returns undefined when no asset matches', () => {
+    expect(findAssetByPattern(mockAssets, /nonexistent\.pkg$/)).toBeUndefined();
   });
 
-  it('returns # when assets array is empty', () => {
-    expect(findAssetByPattern([], /ambrosia-pos.*-x64\.dmg$/)).toBe('#');
+  it('returns undefined when assets array is empty', () => {
+    expect(findAssetByPattern([], /ambrosia-pos.*-x64\.dmg$/)).toBeUndefined();
   });
 });
 
@@ -112,11 +112,11 @@ describe('parseDownloadUrls', () => {
     expect(urls.macArm64).toBe('https://example.com/mac-arm64.dmg');
   });
 
-  it('returns # for all URLs when assets is empty', () => {
+  it('returns undefined for all URLs when assets is empty', () => {
     const urls = parseDownloadUrls([]);
-    expect(urls.winX64).toBe('#');
-    expect(urls.winArm64).toBe('#');
-    expect(urls.macX64).toBe('#');
-    expect(urls.macArm64).toBe('#');
+    expect(urls.winX64).toBeUndefined();
+    expect(urls.winArm64).toBeUndefined();
+    expect(urls.macX64).toBeUndefined();
+    expect(urls.macArm64).toBeUndefined();
   });
 });
