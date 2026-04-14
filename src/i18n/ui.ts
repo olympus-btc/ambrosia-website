@@ -120,25 +120,30 @@ export const ui = {
     'how.header': 'Start accepting Bitcoin in three simple steps',
     'how.subheader': 'From setup to sale in under 5 minutes',
     'how.protip': 'Before your first sale:',
-    'how.protip.text': 'After initial setup, visit the Wallet section to open your Lightning channel by depositing sats. This activates your phoenixd node and enables instant Bitcoin payments with full sovereignty.',
+    'how.protip.text':
+      'After initial setup, visit the Wallet section to open your Lightning channel by depositing sats. This activates your phoenixd node and enables instant Bitcoin payments with full sovereignty.',
     'how.step1.number': '01',
     'how.step1.title': 'Set up your store',
-    'how.step1.description': 'Choose your business type, name your store, and create your admin account. A simple 4-step wizard gets you ready to sell—no technical knowledge required.',
+    'how.step1.description':
+      'Choose your business type, name your store, and create your admin account. A simple 4-step wizard gets you ready to sell—no technical knowledge required.',
     'how.step1.duration': '~40 seconds',
     'how.step2.number': '02',
     'how.step2.title': 'Add your products',
-    'how.step2.description': 'Add product details, set prices in your local currency, and assign stock quantities. The system automatically tracks inventory and alerts you when it\'s time to restock.',
+    'how.step2.description':
+      "Add product details, set prices in your local currency, and assign stock quantities. The system automatically tracks inventory and alerts you when it's time to restock.",
     'how.step2.duration': '~47 seconds',
     'how.step3.number': '03',
     'how.step3.title': 'Accept payments',
-    'how.step3.description': 'Select products, generate Lightning invoices, and receive instant payments. Accept Lightning, cash, debit, or credit—all tracked automatically in your sales reports.',
+    'how.step3.description':
+      'Select products, generate Lightning invoices, and receive instant payments. Accept Lightning, cash, debit, or credit—all tracked automatically in your sales reports.',
     'how.step3.duration': '~25 seconds',
     'how.cta': 'Ready to start? Download Ambrosia PoS',
 
     // Open Source Section
     'os.header': 'Open Source & Transparent',
     'os.tagline': "Don't trust, verify.",
-    'os.intro': 'Ambrosia PoS is built on the principle that financial software should be transparent and auditable. Every line of code is public, every change is tracked, and every release is verifiable.',
+    'os.intro':
+      'Ambrosia PoS is built on the principle that financial software should be transparent and auditable. Every line of code is public, every change is tracked, and every release is verifiable.',
     'os.license.title': 'Fully Open Source',
     'os.license.name': 'MIT License',
     'os.license.audit': 'Audit the code',
@@ -170,7 +175,8 @@ export const ui = {
     'os.security.disclosure.desc': 'Found a security vulnerability? Report it responsibly via email before opening a public issue.',
     'os.security.email': 'contact@ambrosiapay.com',
     'os.security.telemetry': 'No Telemetry, Ever',
-    'os.security.telemetry.desc': "Ambrosia doesn't phone home. No analytics, no tracking, no data collection. Your business data stays on your device.",
+    'os.security.telemetry.desc':
+      "Ambrosia doesn't phone home. No analytics, no tracking, no data collection. Your business data stays on your device.",
     'os.builders.title': 'Built by Bitcoiners, for Bitcoiners',
     'os.builders.desc': 'Developed by Olympus BTC, a team committed to building sovereign Bitcoin tools.',
     'os.builders.v1': 'Self-custody over custodial convenience',
@@ -250,17 +256,23 @@ export const ui = {
     'features.header': 'Built on Bitcoin principles',
     'features.subheader': 'Every feature designed for sovereignty and simplicity',
     'features.phoenixd.title': 'Integrated Phoenixd Node',
-    'features.phoenixd.description': "Runs ACINQ's phoenixd Lightning node natively. Manage your own node, handle your own liquidity, full node sovereignty.",
+    'features.phoenixd.description':
+      "Runs ACINQ's phoenixd Lightning node natively. Manage your own node, handle your own liquidity, full node sovereignty.",
     'features.custody.title': 'Self-Custodial by Design',
-    'features.custody.description': "Your private keys never leave your device. Non-custodial architecture means you're always in complete control of your funds.",
+    'features.custody.description':
+      "Your private keys never leave your device. Non-custodial architecture means you're always in complete control of your funds.",
     'features.instant.title': 'Instant Payments, Zero Waiting',
-    'features.instant.description': 'Accept Lightning payments in seconds. No confirmation delays, no chargebacks, no intermediaries taking a cut.',
+    'features.instant.description':
+      'Accept Lightning payments in seconds. No confirmation delays, no chargebacks, no intermediaries taking a cut.',
     'features.free.title': 'Free Forever, No Surprises',
-    'features.free.description': 'Download once, use forever. No monthly fees, no transaction limits, no premium tiers. Open Source means truly free.',
+    'features.free.description':
+      'Download once, use forever. No monthly fees, no transaction limits, no premium tiers. Open Source means truly free.',
     'features.setup.title': 'Running in Under 5 Minutes',
-    'features.setup.description': 'Zero configuration required. Download, install, and start accepting bitcoin. Your phoenixd node handles everything automatically.',
+    'features.setup.description':
+      'Zero configuration required. Download, install, and start accepting bitcoin. Your phoenixd node handles everything automatically.',
     'features.opensource.title': 'Fully Open Source',
-    'features.opensource.description': 'MIT licensed, auditable codebase. Fork it, verify it, modify it.  Community-driven development with full transparency.',
+    'features.opensource.description':
+      'MIT licensed, auditable codebase. Fork it, verify it, modify it.  Community-driven development with full transparency.',
 
     // Footer
     'footer.tagline': 'Open source point of sale for Bitcoin Lightning payments.',
@@ -296,7 +308,8 @@ export const ui = {
 
     // Meta
     'meta.title': 'Ambrosia PoS - Open Source Bitcoin Lightning Point of Sale',
-    'meta.description': 'Open source point of sale for Bitcoin Lightning. Run your own Phoenixd node. No custody, no KYC, no subscriptions.',
+    'meta.description':
+      'Open source point of sale for Bitcoin Lightning. Run your own Phoenixd node. No custody, no KYC, no subscriptions.',
   },
   es: {
     // Navigation
@@ -412,25 +425,30 @@ export const ui = {
     'how.header': 'Comienza a aceptar Bitcoin en tres simples pasos',
     'how.subheader': 'De la configuración a la venta en menos de 5 minutos',
     'how.protip': 'Antes de tu primera venta:',
-    'how.protip.text': 'Después de la configuración inicial, visita la sección Wallet para abrir tu canal Lightning depositando sats. Esto activa tu nodo phoenixd y habilita pagos instantáneos de Bitcoin con soberanía total.',
+    'how.protip.text':
+      'Después de la configuración inicial, visita la sección Wallet para abrir tu canal Lightning depositando sats. Esto activa tu nodo phoenixd y habilita pagos instantáneos de Bitcoin con soberanía total.',
     'how.step1.number': '01',
     'how.step1.title': 'Configura tu tienda',
-    'how.step1.description': 'Elige tu tipo de negocio, nombra tu tienda y crea tu cuenta de administrador. Un wizard simple de 4 pasos te prepara para vender—sin conocimientos técnicos requeridos.',
+    'how.step1.description':
+      'Elige tu tipo de negocio, nombra tu tienda y crea tu cuenta de administrador. Un wizard simple de 4 pasos te prepara para vender—sin conocimientos técnicos requeridos.',
     'how.step1.duration': '~40 segundos',
     'how.step2.number': '02',
     'how.step2.title': 'Agrega tus productos',
-    'how.step2.description': 'Agrega detalles del producto, establece precios en tu moneda local y asigna cantidades de stock. El sistema rastrea automáticamente el inventario y te alerta cuando es momento de reabastecer.',
+    'how.step2.description':
+      'Agrega detalles del producto, establece precios en tu moneda local y asigna cantidades de stock. El sistema rastrea automáticamente el inventario y te alerta cuando es momento de reabastecer.',
     'how.step2.duration': '~47 segundos',
     'how.step3.number': '03',
     'how.step3.title': 'Acepta pagos',
-    'how.step3.description': 'Selecciona productos, genera facturas Lightning y recibe pagos instantáneos. Acepta Lightning, efectivo, débito o crédito—todo rastreado automáticamente en tus reportes de ventas.',
+    'how.step3.description':
+      'Selecciona productos, genera facturas Lightning y recibe pagos instantáneos. Acepta Lightning, efectivo, débito o crédito—todo rastreado automáticamente en tus reportes de ventas.',
     'how.step3.duration': '~25 segundos',
     'how.cta': '¿Listo para comenzar? Descarga Ambrosia PoS',
 
     // Open Source Section
     'os.header': 'Open Source y Transparente',
     'os.tagline': 'No confíes, verifica.',
-    'os.intro': 'Ambrosia PoS está construido sobre el principio de que el software financiero debe ser transparente y auditable. Cada línea de código es pública, cada cambio es rastreado y cada lanzamiento es verificable.',
+    'os.intro':
+      'Ambrosia PoS está construido sobre el principio de que el software financiero debe ser transparente y auditable. Cada línea de código es pública, cada cambio es rastreado y cada lanzamiento es verificable.',
     'os.license.title': 'Completamente Open Source',
     'os.license.name': 'Licencia MIT',
     'os.license.audit': 'Auditar el código',
@@ -449,7 +467,8 @@ export const ui = {
     'os.verify.releases.desc': 'Cada lanzamiento incluye checksums SHA256 para verificar tu descarga.',
     'os.verify.releases.cta': 'Última Versión',
     'os.verify.deps': 'Dependencias',
-    'os.verify.deps.desc': 'Construido sobre open source confiable: phoenixd de ACINQ y Electron. Todas las dependencias auditables en package.json.',
+    'os.verify.deps.desc':
+      'Construido sobre open source confiable: phoenixd de ACINQ y Electron. Todas las dependencias auditables en package.json.',
     'os.community.title': 'Desarrollo Impulsado por la Comunidad',
     'os.community.bugs': 'Reporta bugs o solicita funcionalidades',
     'os.community.pr': 'Envía pull requests',
@@ -462,7 +481,8 @@ export const ui = {
     'os.security.disclosure.desc': '¿Encontraste una vulnerabilidad? Repórtala responsablemente por email antes de abrir un issue público.',
     'os.security.email': 'contact@ambrosiapay.com',
     'os.security.telemetry': 'Sin Telemetría, Nunca',
-    'os.security.telemetry.desc': 'Ambrosia no envía datos. Sin analíticas, sin rastreo, sin recolección de datos. Los datos de tu negocio permanecen en tu dispositivo.',
+    'os.security.telemetry.desc':
+      'Ambrosia no envía datos. Sin analíticas, sin rastreo, sin recolección de datos. Los datos de tu negocio permanecen en tu dispositivo.',
     'os.builders.title': 'Construido por Bitcoiners, para Bitcoiners',
     'os.builders.desc': 'Desarrollado por Olympus BTC, un equipo comprometido con construir herramientas Bitcoin soberanas.',
     'os.builders.v1': 'Autocustodia sobre conveniencia custodial',
@@ -542,17 +562,23 @@ export const ui = {
     'features.header': 'Construido sobre principios Bitcoin',
     'features.subheader': 'Cada funcionalidad diseñada para soberanía y simplicidad',
     'features.phoenixd.title': 'Nodo Phoenixd Integrado',
-    'features.phoenixd.description': 'Ejecuta el nodo Lightning phoenixd de ACINQ nativamente. Gestiona tu propio nodo, maneja tu propia liquidez, soberanía total del nodo.',
+    'features.phoenixd.description':
+      'Ejecuta el nodo Lightning phoenixd de ACINQ nativamente. Gestiona tu propio nodo, maneja tu propia liquidez, soberanía total del nodo.',
     'features.custody.title': 'Auto-Custodia por Diseño',
-    'features.custody.description': 'Tus llaves privadas nunca salen de tu dispositivo. Arquitectura no custodial significa que siempre tienes control completo de tus fondos.',
+    'features.custody.description':
+      'Tus llaves privadas nunca salen de tu dispositivo. Arquitectura no custodial significa que siempre tienes control completo de tus fondos.',
     'features.instant.title': 'Pagos Instantáneos, Cero Esperas',
-    'features.instant.description': 'Acepta pagos Lightning en segundos. Sin esperas de confirmación, sin contracargos, sin intermediarios cobrando comisiones.',
+    'features.instant.description':
+      'Acepta pagos Lightning en segundos. Sin esperas de confirmación, sin contracargos, sin intermediarios cobrando comisiones.',
     'features.free.title': 'Gratis para Siempre, Sin Sorpresas',
-    'features.free.description': 'Descarga una vez, usa para siempre. Sin cuotas mensuales, sin límites de transacciones, sin planes premium. Open Source significa verdaderamente gratis.',
+    'features.free.description':
+      'Descarga una vez, usa para siempre. Sin cuotas mensuales, sin límites de transacciones, sin planes premium. Open Source significa verdaderamente gratis.',
     'features.setup.title': 'Funcionando en Menos de 5 Minutos',
-    'features.setup.description': 'Cero configuración requerida. Descarga, instala y comienza a aceptar bitcoin. Tu nodo phoenixd maneja todo automáticamente.',
+    'features.setup.description':
+      'Cero configuración requerida. Descarga, instala y comienza a aceptar bitcoin. Tu nodo phoenixd maneja todo automáticamente.',
     'features.opensource.title': 'Completamente Open Source',
-    'features.opensource.description': 'Licencia MIT, código auditable. Bifúrcalo, verifícalo, modifícalo.  Desarrollo impulsado por la comunidad con transparencia total.',
+    'features.opensource.description':
+      'Licencia MIT, código auditable. Bifúrcalo, verifícalo, modifícalo.  Desarrollo impulsado por la comunidad con transparencia total.',
 
     // Footer
     'footer.tagline': 'Punto de venta open source para pagos Bitcoin Lightning.',
@@ -588,7 +614,8 @@ export const ui = {
 
     // Meta
     'meta.title': 'Ambrosia PoS - Punto de Venta Open Source Bitcoin Lightning',
-    'meta.description': 'Punto de venta open source para Bitcoin Lightning. Corre tu propio nodo Phoenixd. Sin custodia, sin KYC, sin suscripciones.',
+    'meta.description':
+      'Punto de venta open source para Bitcoin Lightning. Corre tu propio nodo Phoenixd. Sin custodia, sin KYC, sin suscripciones.',
   },
 } as const;
 

@@ -12,12 +12,7 @@ const lang = 'en';
 const t = useTranslations(lang);
 ---
 
-<Layout
-  lang={lang}
-  title={t('meta.title')}
-  description={t('meta.description')}
-  canonicalURL="/en/"
->
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')} canonicalURL="/en/">
   <Hero lang={lang} />
   <Features lang={lang} />
   <WhyAmbrosia lang={lang} />
