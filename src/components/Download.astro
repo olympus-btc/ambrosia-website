@@ -145,13 +145,13 @@ const platforms = [
                   </svg>
                 )}
               </div>
-              <h3 class="text-2xl font-bold text-th">{t(platform.nameKey as any)}</h3>
+              <h3 class="text-2xl font-bold text-th">{t(platform.nameKey)}</h3>
             </div>
 
             {/* Architectures */}
             {platform.arches.map((arch, archIdx) => (
               <div class:list={['mb-5', archIdx > 0 && 'mt-6 pt-5 border-t border-b-subtle']}>
-                <h4 class="text-sm font-semibold text-tb mb-3">{t(arch.labelKey as any)}</h4>
+                <h4 class="text-sm font-semibold text-tb mb-3">{t(arch.labelKey)}</h4>
                 <div class="flex flex-col gap-2">
                   {arch.files.map((file) => (
                     <a

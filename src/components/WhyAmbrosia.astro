@@ -90,7 +90,7 @@ function getStatusIcon(status: string) {
                         : 'bg-table-header text-tb border-b-default',
                     ]}
                   >
-                    <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
+                    <div class="font-bold">{t(`why.table.${comp}`)}</div>
                   </th>
                 ))
               }
@@ -101,10 +101,10 @@ function getStatusIcon(status: string) {
               rows.map((row, idx) => (
                 <tr class={idx % 2 === 0 ? 'bg-table-row-even' : 'bg-table-row-odd'}>
                   <td class="sticky left-0 z-10 p-4 text-sm font-medium text-ts border-b border-b-subtle bg-surface-overlay backdrop-blur-md">
-                    {t(`why.row.${row}` as any)}
+                    {t(`why.row.${row}`)}
                   </td>
                   {competitors.map((comp) => {
-                    const cellValue = t(`why.row.${row}.${comp}` as any);
+                    const cellValue = t(`why.row.${row}.${comp}`);
                     const parsed = parseCell(cellValue);
                     const statusInfo = parsed.status ? getStatusIcon(parsed.status) : null;
                     const isAmbrosia = comp === 'ambrosia';
