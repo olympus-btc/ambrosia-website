@@ -148,22 +148,22 @@ try {
 
 <script is:inline>
   (function () {
-    var ua = navigator.userAgent;
-    var btn = document.getElementById('hero-download');
-    var label = document.getElementById('hero-download-label');
+    const ua = navigator.userAgent;
+    const btn = document.getElementById('hero-download');
+    const label = document.getElementById('hero-download-label');
     if (!btn) return;
 
     // Mobile — keep #download fallback
     if (/Android|iPhone|iPad|iPod/i.test(ua)) return;
 
-    var urls = {
+    const urls = {
       winX64: btn.dataset.winX64,
       winArm64: btn.dataset.winArm64,
       macX64: btn.dataset.macX64,
       macArm64: btn.dataset.macArm64,
     };
 
-    var os;
+    let os;
 
     if (/Win/i.test(ua)) {
       os = 'Windows';
@@ -172,16 +172,16 @@ try {
     } else return; // Linux and unknown OS — keep #download fallback
 
     function setDownload(arch) {
-      var url = os === 'Windows' ? (arch === 'arm64' ? urls.winArm64 : urls.winX64) : arch === 'arm64' ? urls.macArm64 : urls.macX64;
+      const url = os === 'Windows' ? (arch === 'arm64' ? urls.winArm64 : urls.winX64) : arch === 'arm64' ? urls.macArm64 : urls.macX64;
       if (url && url !== '#') btn.href = url;
       if (label) {
-        label.textContent = '| ' + os + ' ' + arch;
+        label.textContent = `| ${os} ${arch}`;
         label.classList.remove('hidden');
       }
     }
 
     // 1. Check userAgent / platform for arm64
-    var plat = navigator.platform || '';
+    const plat = navigator.platform || '';
     if (/arm64|aarch64/i.test(ua) || /arm64|aarch64/i.test(plat)) {
       setDownload('arm64');
       return;
@@ -190,12 +190,12 @@ try {
     // 2. macOS/Windows: check WebGL renderer for ARM GPUs
     if (os === 'macOS' || os === 'Windows') {
       try {
-        var canvas = document.createElement('canvas');
-        var gl = canvas.getContext('webgl');
+        const canvas = document.createElement('canvas');
+        const gl = canvas.getContext('webgl');
         if (gl) {
-          var dbg = gl.getExtension('WEBGL_debug_renderer_info');
+          const dbg = gl.getExtension('WEBGL_debug_renderer_info');
           if (dbg) {
-            var renderer = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL);
+            const renderer = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL);
             if (/Apple M|Apple GPU/i.test(renderer)) {
               setDownload('arm64');
               return;
@@ -206,21 +206,21 @@ try {
             }
           }
         }
-      } catch (e) {}
+      } catch {}
     }
 
     // 3. Chromium: use userAgentData high entropy (async, covers Linux ARM64 on Chrome)
     if (navigator.userAgentData && navigator.userAgentData.getHighEntropyValues) {
       navigator.userAgentData
         .getHighEntropyValues(['architecture'])
-        .then(function (v) {
+        .then((v) => {
           if (v.architecture === 'arm') {
             setDownload('arm64');
           } else {
             setDownload('x64');
           }
         })
-        .catch(function () {
+        .catch(() => {
           setDownload('x64');
         });
       return;

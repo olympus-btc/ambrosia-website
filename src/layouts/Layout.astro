@@ -35,11 +35,11 @@ const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://amb
     <script is:inline>
       (function () {
         try {
-          var t = localStorage.getItem('theme');
+          const t = localStorage.getItem('theme');
           if (t === 'light') {
             document.documentElement.classList.add('light');
           }
-        } catch (e) {}
+        } catch {}
       })();
     </script>
     <script src="https://analytics.ahrefs.com/analytics.js" data-key="gjxOM/7taquiBEuNII6ILA" async></script>

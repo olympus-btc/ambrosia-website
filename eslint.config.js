@@ -6,6 +6,7 @@ import prettierConfig from 'eslint-config-prettier';
 import globals from 'globals';
 
 const airbnbQualityRules = {
+  'no-empty': ['error', { allowEmptyCatch: true }],
   'prefer-const': 'error',
   'no-var': 'error',
   'no-unused-vars': 'off',
