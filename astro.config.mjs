@@ -22,5 +22,13 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@lib': '/src/lib',
+        '@components': '/src/components',
+        '@i18n': '/src/i18n',
+        '@layouts': '/src/layouts',
+      },
+    },
   },
 });
