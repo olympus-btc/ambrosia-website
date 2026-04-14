@@ -26,6 +26,10 @@ pnpm-debug.log*
 # vscode setting folder
 .vscode/
 
+# Playwright
+playwright-report/
+test-results/
+
 # AI Agents Files
 CLAUDE.md
 GEMINI.md
