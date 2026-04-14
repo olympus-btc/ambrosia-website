@@ -9,18 +9,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
-const rows = [
-  'cost',
-  'custody',
-  'lightning',
-  'maintenance',
-  'permissions',
-  'setup',
-  'business',
-  'opensource',
-  'kyc',
-  'platform',
-] as const;
+const rows = ['cost', 'custody', 'lightning', 'maintenance', 'permissions', 'setup', 'business', 'opensource', 'kyc', 'platform'] as const;
 
 const competitors = ['square', 'wosblink', 'btcpay', 'zeus', 'ambrosia'] as const;
 
@@ -77,7 +66,7 @@ function getStatusIcon(status: string) {
       <!-- Scroll hint for mobile/tablet -->
       <div class="lg:hidden text-center text-tm text-sm mb-3 flex items-center justify-center gap-2">
         <svg class="w-4 h-4 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
         </svg>
         <span>Scroll to compare</span>
       </div>
@@ -86,57 +75,53 @@ function getStatusIcon(status: string) {
         <table class="w-full min-w-237.5 border-collapse">
           <thead>
             <tr>
-              <th class="sticky left-0 z-10 bg-surface-overlay backdrop-blur-md p-4 text-left text-sm font-semibold text-tb border-b border-b-default min-w-35">
+              <th
+                class="sticky left-0 z-10 bg-surface-overlay backdrop-blur-md p-4 text-left text-sm font-semibold text-tb border-b border-b-default min-w-35"
+              >
                 {t('why.table.feature')}
               </th>
-              {competitors.map((comp) => (
-                <th class:list={[
-                  "p-4 text-center text-sm font-semibold border-b min-w-40",
-                  comp === 'ambrosia'
-                    ? "bg-green-400/10 text-green-400 border-green-400/30"
-                    : "bg-table-header text-tb border-b-default"
-                ]}>
-                  <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
-                </th>
-              ))}
+              {
+                competitors.map((comp) => (
+                  <th
+                    class:list={[
+                      'p-4 text-center text-sm font-semibold border-b min-w-40',
+                      comp === 'ambrosia'
+                        ? 'bg-green-400/10 text-green-400 border-green-400/30'
+                        : 'bg-table-header text-tb border-b-default',
+                    ]}
+                  >
+                    <div class="font-bold">{t(`why.table.${comp}` as any)}</div>
+                  </th>
+                ))
+              }
             </tr>
           </thead>
           <tbody>
-            {rows.map((row, idx) => (
-              <tr class={idx % 2 === 0 ? 'bg-table-row-even' : 'bg-table-row-odd'}>
-                <td class="sticky left-0 z-10 p-4 text-sm font-medium text-ts border-b border-b-subtle bg-surface-overlay backdrop-blur-md">
-                  {t(`why.row.${row}` as any)}
-                </td>
-                {competitors.map((comp) => {
-                  const cellValue = t(`why.row.${row}.${comp}` as any);
-                  const parsed = parseCell(cellValue);
-                  const statusInfo = parsed.status ? getStatusIcon(parsed.status) : null;
-                  const isAmbrosia = comp === 'ambrosia';
+            {
+              rows.map((row, idx) => (
+                <tr class={idx % 2 === 0 ? 'bg-table-row-even' : 'bg-table-row-odd'}>
+                  <td class="sticky left-0 z-10 p-4 text-sm font-medium text-ts border-b border-b-subtle bg-surface-overlay backdrop-blur-md">
+                    {t(`why.row.${row}` as any)}
+                  </td>
+                  {competitors.map((comp) => {
+                    const cellValue = t(`why.row.${row}.${comp}` as any);
+                    const parsed = parseCell(cellValue);
+                    const statusInfo = parsed.status ? getStatusIcon(parsed.status) : null;
+                    const isAmbrosia = comp === 'ambrosia';
 
-                  return (
-                    <td class:list={[
-                      "p-4 text-center text-sm border-b border-b-subtle",
-                      isAmbrosia ? "bg-green-400/5" : ""
-                    ]}>
-                      <div class:list={[
-                        "flex flex-col items-center gap-1",
-                        isAmbrosia ? "font-semibold text-green-400" : "text-tb"
-                      ]}>
-                        {statusInfo && (
-                          <span class={`text-lg ${statusInfo.class}`}>
-                            {statusInfo.icon}
-                          </span>
-                        )}
-                        <span class={isAmbrosia ? "text-green-400" : ""}>{parsed.main}</span>
-                        {parsed.sub && (
-                          <span class="text-xs text-tm">{parsed.sub}</span>
-                        )}
-                      </div>
-                    </td>
-                  );
-                })}
-              </tr>
-            ))}
+                    return (
+                      <td class:list={['p-4 text-center text-sm border-b border-b-subtle', isAmbrosia ? 'bg-green-400/5' : '']}>
+                        <div class:list={['flex flex-col items-center gap-1', isAmbrosia ? 'font-semibold text-green-400' : 'text-tb']}>
+                          {statusInfo && <span class={`text-lg ${statusInfo.class}`}>{statusInfo.icon}</span>}
+                          <span class={isAmbrosia ? 'text-green-400' : ''}>{parsed.main}</span>
+                          {parsed.sub && <span class="text-xs text-tm">{parsed.sub}</span>}
+                        </div>
+                      </td>
+                    );
+                  })}
+                </tr>
+              ))
+            }
           </tbody>
         </table>
       </div>
