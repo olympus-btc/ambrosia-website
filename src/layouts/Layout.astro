@@ -2,7 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import LegalModals from '../components/LegalModals.astro';
-import type { Lang } from '../i18n/ui';
+import type { Lang } from '@i18n/ui';
+import { selectOGImage, buildCanonicalURL, buildOGImageURL } from '@lib/seo';
 import '../styles/global.css';
 
 interface Props {
@@ -21,11 +22,8 @@ const {
   canonicalURL: canonicalOverride,
 } = Astro.props;
 
-const defaultOgImage = lang === 'es' ? '/og-image-es.png' : '/og-image.png';
-const canonicalURL = canonicalOverride
-  ? new URL(canonicalOverride, Astro.site ?? 'https://ambrosiapay.com')
-  : new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
-const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://ambrosiapay.com').href;
+const canonicalURL = buildCanonicalURL(Astro.url.pathname, Astro.site, canonicalOverride);
+const ogImageURL = buildOGImageURL(selectOGImage(lang, ogImage), Astro.site);
 ---
 
 <!doctype html>
