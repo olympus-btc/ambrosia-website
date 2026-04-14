@@ -10,17 +10,17 @@ export default defineConfig({
   site: 'https://ambrosiapay.com',
   integrations: [react()],
   build: {
-    inlineStylesheets: "always",
+    inlineStylesheets: 'always',
   },
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
     routing: {
       prefixDefaultLocale: true,
-      redirectToDefaultLocale: false
-    }
+      redirectToDefaultLocale: false,
+    },
   },
   vite: {
-    plugins: [tailwindcss()]
-  }
+    plugins: [tailwindcss()],
+  },
 });
