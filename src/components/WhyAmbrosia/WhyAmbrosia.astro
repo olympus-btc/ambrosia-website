@@ -1,6 +1,7 @@
 ---
-import { useTranslations } from '../i18n/utils';
-import type { Lang } from '../i18n/ui';
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/ui';
+import { parseCell, getStatusIcon } from './comparison-cell';
 
 interface Props {
   lang: Lang;
@@ -10,43 +11,7 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const rows = ['cost', 'custody', 'lightning', 'maintenance', 'permissions', 'setup', 'business', 'opensource', 'kyc', 'platform'] as const;
-
 const competitors = ['square', 'wosblink', 'btcpay', 'zeus', 'ambrosia'] as const;
-
-const statuses = ['yes', 'no', 'warn', 'fast', 'slow'];
-
-function parseCell(value: string): { status?: string; main: string; sub?: string } {
-  const parts = value.split('|');
-
-  if (parts.length === 1) {
-    return { main: parts[0] };
-  }
-
-  if (statuses.includes(parts[0])) {
-    // status|main or status|main|subtitle
-    return { status: parts[0], main: parts[1], sub: parts[2] || undefined };
-  }
-
-  // main|subtitle (no status)
-  return { main: parts[0], sub: parts[1] };
-}
-
-function getStatusIcon(status: string) {
-  switch (status) {
-    case 'yes':
-      return { icon: '✓', class: 'text-green-400' };
-    case 'no':
-      return { icon: '✗', class: 'text-red-400' };
-    case 'warn':
-      return { icon: '⚠', class: 'text-yellow-400' };
-    case 'fast':
-      return { icon: '⚡', class: 'text-green-400' };
-    case 'slow':
-      return { icon: '🐌', class: 'text-red-400' };
-    default:
-      return null;
-  }
-}
 ---
 
 <section id="why-ambrosia" class="py-20 md:py-28 px-4 md:px-8 bg-surface-section">
