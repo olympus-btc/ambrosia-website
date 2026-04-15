@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* ─── Theme tokens (dark = default) ─── */
 :root {
@@ -56,7 +56,7 @@
   --surface-overlay-heavy: rgba(240, 253, 244, 0.97);
   --surface-interactive: rgba(22, 163, 74, 0.08);
   --surface-interactive-hover: rgba(22, 163, 74, 0.14);
-  --surface-interactive-hover2: rgba(22, 163, 74, 0.10);
+  --surface-interactive-hover2: rgba(22, 163, 74, 0.1);
 
   --card-bg: #ffffff;
   --card-bg-hover: #f0fdf4;
@@ -88,14 +88,18 @@
 
 /* Light theme card shadows & green accent adjustments */
 .light .feature-card > div:last-child,
-.light [class*="bg-surface-card"],
-.light [class*="bg-card-bg"],
+.light [class*='bg-surface-card'],
+.light [class*='bg-card-bg'],
 .light dialog > div > div {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
-.light [class*="bg-surface-card"]:hover {
-  box-shadow: 0 4px 12px rgba(22, 163, 74, 0.1), 0 2px 4px rgba(0, 0, 0, 0.04);
+.light [class*='bg-surface-card']:hover {
+  box-shadow:
+    0 4px 12px rgba(22, 163, 74, 0.1),
+    0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 /* Light mode: feature card hover — hide glow, use shadow lift */
@@ -104,11 +108,17 @@
 }
 
 .light .feature-card > div:last-child {
-  transition: box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  transition:
+    box-shadow 0.3s ease,
+    border-color 0.3s ease,
+    background-color 0.3s ease,
+    transform 0.3s ease;
 }
 
 .light .feature-card:hover > div:last-child {
-  box-shadow: 0 8px 24px rgba(22, 163, 74, 0.15), 0 4px 8px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 8px 24px rgba(22, 163, 74, 0.15),
+    0 4px 8px rgba(0, 0, 0, 0.04);
   border-color: rgba(22, 163, 74, 0.3);
   background-color: #ffffff;
 }
@@ -139,14 +149,14 @@
 }
 
 /* Light mode: green gradient CTAs use darker green with white text */
-.light [class*="from-green-400"][class*="to-green-600"] {
+.light [class*='from-green-400'][class*='to-green-600'] {
   --tw-gradient-from: #16a34a;
   --tw-gradient-to: #15803d;
   color: #ffffff;
   box-shadow: 0 4px 14px rgba(22, 163, 74, 0.25);
 }
 
-.light [class*="from-green-400"][class*="to-green-600"]:hover {
+.light [class*='from-green-400'][class*='to-green-600']:hover {
   box-shadow: 0 6px 20px rgba(22, 163, 74, 0.35);
 }
 
@@ -202,7 +212,7 @@
 }
 
 /* Light mode: logo needs dark version (original is white) */
-.light img[alt="Ambrosia Logo"] {
+.light img[alt='Ambrosia Logo'] {
   filter: brightness(0) saturate(100%) invert(27%) sepia(51%) saturate(2878%) hue-rotate(126deg) brightness(97%) contrast(85%);
 }
 
@@ -276,7 +286,9 @@
 .light #download .bg-green-400\/5.border-green-400\/10 {
   background-color: #ffffff;
   border-color: rgba(22, 163, 74, 0.2);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(22, 163, 74, 0.08);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.06),
+    0 0 0 1px rgba(22, 163, 74, 0.08);
 }
 
 /* Light mode: Footer */

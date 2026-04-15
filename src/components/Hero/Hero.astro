@@ -1,0 +1,199 @@
+---
+import { useTranslations } from '@i18n/utils';
+import { type Lang } from '@i18n/ui';
+import { fetchLatestRelease, parseDownloadUrls } from '@lib/releases';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const { assets } = await fetchLatestRelease();
+const dlUrls = parseDownloadUrls(assets);
+---
+
+<section
+  class="relative overflow-hidden flex items-start justify-center px-4 pt-24 pb-12 md:pt-28 md:pb-16 md:px-8 lg:min-h-screen lg:items-center lg:pt-24 lg:pb-8"
+>
+  <div class="relative z-10 max-w-200 text-center flex flex-col items-center gap-4 md:gap-6">
+    <span
+      class="inline-block px-3 py-1.5 md:px-4 md:py-2 bg-green-400/10 border border-green-400/30 rounded-full text-xs md:text-sm font-medium text-green-400 tracking-wide"
+    >
+      {t('hero.eyebrow')}
+    </span>
+
+    <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight text-th tracking-tight">
+      {t('hero.headline')}
+    </h1>
+
+    <p class="text-base md:text-lg lg:text-xl text-tsec leading-relaxed max-w-150 px-2 md:px-0">
+      {t('hero.subheadline')}
+    </p>
+
+    <div class="flex flex-wrap justify-center gap-2 md:gap-3 mt-1 md:mt-2">
+      <span
+        class="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-surface-interactive border border-b-default rounded-full text-xs md:text-sm text-tb hover:bg-surface-interactive-hover2 hover:border-b-medium transition-all"
+      >
+        <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="8" y1="21" x2="16" y2="21"></line>
+          <line x1="12" y1="17" x2="12" y2="21"></line>
+        </svg>
+        {t('hero.badge.node')}
+      </span>
+      <span
+        class="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-surface-interactive border border-b-default rounded-full text-xs md:text-sm text-tb hover:bg-surface-interactive-hover2 hover:border-b-medium transition-all"
+      >
+        <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+        </svg>
+        {t('hero.badge.lightning')}
+      </span>
+      <span
+        class="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-surface-interactive border border-b-default rounded-full text-xs md:text-sm text-tb hover:bg-surface-interactive-hover2 hover:border-b-medium transition-all"
+      >
+        <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+          <path d="M2 17l10 5 10-5"></path>
+          <path d="M2 12l10 5 10-5"></path>
+        </svg>
+        {t('hero.badge.opensource')}
+      </span>
+      <span
+        class="inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-surface-interactive border border-b-default rounded-full text-xs md:text-sm text-tb hover:bg-surface-interactive-hover2 hover:border-b-medium transition-all"
+      >
+        <svg class="w-3.5 h-3.5 md:w-4 md:h-4 text-green-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <path d="M9 12l2 2 4-4"></path>
+        </svg>
+        {t('hero.badge.free')}
+      </span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mt-3 md:mt-4 w-full sm:w-auto px-4 sm:px-0">
+      <a
+        href="#download"
+        id="hero-download"
+        data-win-x64={dlUrls.winX64}
+        data-win-arm64={dlUrls.winArm64}
+        data-mac-x64={dlUrls.macX64}
+        data-mac-arm64={dlUrls.macArm64}
+        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg w-full sm:w-auto hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        {t('hero.cta.download')}
+        <span id="hero-download-label" class="text-xs font-normal opacity-80 hidden">|</span>
+      </a>
+      <a
+        href="https://github.com/olympus-btc/ambrosia"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-transparent text-th font-medium text-base border border-b-strong rounded-lg w-full sm:w-auto hover:bg-surface-interactive hover:border-b-strongest transition-all"
+      >
+        {t('hero.cta.github')}
+        <svg
+          class="w-5 h-5 transition-transform group-hover:translate-x-1"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <line x1="5" y1="12" x2="19" y2="12"></line>
+          <polyline points="12 5 19 12 12 19"></polyline>
+        </svg>
+      </a>
+    </div>
+
+    <p class="mt-3 md:mt-4 text-xs md:text-sm text-tm tracking-wide px-2 md:px-0">
+      {t('hero.trust')}
+    </p>
+  </div>
+
+  <!-- Gradient background -->
+  <div
+    class="hero-gradient absolute inset-0 pointer-events-none z-0 bg-[radial-gradient(ellipse_at_50%_0%,rgba(74,222,128,0.15)_0%,transparent_50%),radial-gradient(ellipse_at_80%_50%,rgba(52,211,153,0.12)_0%,transparent_40%),radial-gradient(ellipse_at_20%_80%,rgba(163,230,53,0.08)_0%,transparent_40%)]"
+  >
+  </div>
+</section>
+
+<style>
+  .light .hero-gradient {
+    background:
+      radial-gradient(ellipse at 50% 0%, rgba(74, 222, 128, 0.25) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 50%, rgba(52, 211, 153, 0.2) 0%, transparent 45%),
+      radial-gradient(ellipse at 20% 80%, rgba(163, 230, 53, 0.15) 0%, transparent 45%);
+  }
+</style>
+
+<script>
+  import { detectOS, isMobile, detectArchFromUA, detectArchFromRenderer, getDownloadUrl, type Arch } from './arch-detection';
+
+  const ua = navigator.userAgent;
+  const btn = document.getElementById('hero-download') as HTMLAnchorElement | null;
+  const label = document.getElementById('hero-download-label');
+  if (!btn) throw new Error('hero-download button not found');
+
+  if (isMobile(ua)) {
+    // Mobile — keep #download fallback
+  } else {
+    const urls = {
+      winX64: btn.dataset.winX64,
+      winArm64: btn.dataset.winArm64,
+      macX64: btn.dataset.macX64,
+      macArm64: btn.dataset.macArm64,
+    };
+
+    const os = detectOS(ua);
+
+    if (os) {
+      const setDownload = (arch: Arch) => {
+        const url = getDownloadUrl(os, arch, urls);
+        if (url !== '#') btn.href = url;
+        if (label) {
+          label.textContent = `| ${os} ${arch}`;
+          label.classList.remove('hidden');
+        }
+      };
+
+      // 1. Check userAgent / platform for arm64
+      const plat = navigator.platform || '';
+      const archFromUA = detectArchFromUA(ua, plat);
+      if (archFromUA) {
+        setDownload(archFromUA);
+      } else {
+        // 2. macOS/Windows: check WebGL renderer for ARM GPUs
+        try {
+          const canvas = document.createElement('canvas');
+          const gl = canvas.getContext('webgl');
+          if (gl) {
+            const dbg = gl.getExtension('WEBGL_debug_renderer_info');
+            if (dbg) {
+              const renderer = gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL) as string;
+              const archFromRenderer = detectArchFromRenderer(renderer);
+              if (archFromRenderer) {
+                setDownload(archFromRenderer);
+              }
+            }
+          }
+        } catch {}
+
+        // 3. Chromium: use userAgentData high entropy (async, covers Linux ARM64 on Chrome)
+        if (navigator.userAgentData?.getHighEntropyValues) {
+          navigator.userAgentData
+            .getHighEntropyValues(['architecture'])
+            .then((v) => setDownload(v.architecture === 'arm' ? 'arm64' : 'x64'))
+            .catch(() => setDownload('x64'));
+        } else {
+          // 4. Fallback: x64
+          setDownload('x64');
+        }
+      }
+    }
+  }
+</script>

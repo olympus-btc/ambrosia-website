@@ -1,8 +1,9 @@
 ---
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import LegalModals from '../components/LegalModals.astro';
-import type { Lang } from '../i18n/ui';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+import LegalModals from '@components/LegalModals.astro';
+import type { Lang } from '@i18n/ui';
+import { selectOGImage, buildCanonicalURL, buildOGImageURL } from '@lib/seo';
 import '../styles/global.css';
 
 interface Props {
@@ -21,66 +22,59 @@ const {
   canonicalURL: canonicalOverride,
 } = Astro.props;
 
-const defaultOgImage = lang === 'es' ? '/og-image-es.png' : '/og-image.png';
-const canonicalURL = canonicalOverride
-  ? new URL(canonicalOverride, Astro.site ?? 'https://ambrosiapay.com')
-  : new URL(Astro.url.pathname, Astro.site ?? 'https://ambrosiapay.com');
-const ogImageURL = new URL(ogImage ?? defaultOgImage, Astro.site ?? 'https://ambrosiapay.com').href;
+const canonicalURL = buildCanonicalURL(Astro.url.pathname, Astro.site, canonicalOverride);
+const ogImageURL = buildOGImageURL(selectOGImage(lang, ogImage), Astro.site);
 ---
 
 <!doctype html>
 <html lang={lang} class="bg-surface-base text-th">
-	<head>
-		<meta charset="UTF-8" />
-		<script is:inline>
-			(function(){
-				try {
-					var t = localStorage.getItem('theme');
-					if (t === 'light') {
-						document.documentElement.classList.add('light');
-					}
-				} catch(e){}
-			})();
-		</script>
-		<script
-			src="https://analytics.ahrefs.com/analytics.js"
-			data-key="gjxOM/7taquiBEuNII6ILA"
-			async>
-		</script>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href={new URL('/favicon.ico', Astro.site ?? 'https://ambrosiapay.com').href} sizes="any" />
-		<link rel="icon" href={new URL('/favicon.svg', Astro.site ?? 'https://ambrosiapay.com').href} type="image/svg+xml" />
-		<link rel="canonical" href={canonicalURL} />
-		<meta name="description" content={description} />
-		<meta name="robots" content="index, follow" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+  <head>
+    <meta charset="UTF-8" />
+    <script is:inline>
+      (function () {
+        try {
+          const t = localStorage.getItem('theme');
+          if (t === 'light') {
+            document.documentElement.classList.add('light');
+          }
+        } catch {}
+      })();
+    </script>
+    <script src="https://analytics.ahrefs.com/analytics.js" data-key="gjxOM/7taquiBEuNII6ILA" async></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href={new URL('/favicon.ico', Astro.site ?? 'https://ambrosiapay.com').href} sizes="any" />
+    <link rel="icon" href={new URL('/favicon.svg', Astro.site ?? 'https://ambrosiapay.com').href} type="image/svg+xml" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-		<!-- Open Graph -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={ogImageURL} />
-		<meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
-		<meta property="og:site_name" content="Ambrosia PoS" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
+    <meta property="og:site_name" content="Ambrosia PoS" />
 
-		<!-- Twitter Card -->
-		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content={title} />
-		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={ogImageURL} />
-		<meta name="twitter:site" content="@AmbrosiaPoS" />
-		<meta name="twitter:creator" content="@AmbrosiaPoS" />
-		<meta name="twitter:url" content={canonicalURL} />
-		<meta name="twitter:domain" content="ambrosiapay.com" />
-	</head>
-	<body class="min-h-screen font-sans antialiased">
-		<Header lang={lang} />
-		<main>
-			<slot />
-		</main>
-		<Footer lang={lang} />
-		<LegalModals lang={lang} />
-	</body>
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+    <meta name="twitter:site" content="@AmbrosiaPoS" />
+    <meta name="twitter:creator" content="@AmbrosiaPoS" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:domain" content="ambrosiapay.com" />
+  </head>
+  <body class="min-h-screen font-sans antialiased">
+    <Header lang={lang} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <LegalModals lang={lang} />
+  </body>
 </html>

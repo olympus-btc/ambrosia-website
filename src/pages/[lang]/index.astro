@@ -1,14 +1,13 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import Hero from '../../components/Hero.astro';
-import Features from '../../components/Features.astro';
-import WhyAmbrosia from '../../components/WhyAmbrosia.astro';
-import HowItWorks from '../../components/HowItWorks.astro';
-import OpenSource from '../../components/OpenSource.astro';
-import Download from '../../components/Download.astro';
-import { useTranslations } from '../../i18n/utils';
-import type { Lang } from '../../i18n/ui';
-import { languages } from '../../i18n/ui';
+import Layout from '@layouts/Layout.astro';
+import Hero from '@components/Hero/Hero.astro';
+import Features from '@components/Features.astro';
+import WhyAmbrosia from '@components/WhyAmbrosia/WhyAmbrosia.astro';
+import HowItWorks from '@components/HowItWorks.astro';
+import OpenSource from '@components/OpenSource.astro';
+import Download from '@components/Download/Download.astro';
+import { useTranslations } from '@i18n/utils';
+import { languages, type Lang } from '@i18n/ui';
 
 export function getStaticPaths() {
   return Object.keys(languages).map((lang) => ({
@@ -20,11 +19,7 @@ const { lang } = Astro.params as { lang: Lang };
 const t = useTranslations(lang);
 ---
 
-<Layout
-  lang={lang}
-  title={t('meta.title')}
-  description={t('meta.description')}
->
+<Layout lang={lang} title={t('meta.title')} description={t('meta.description')}>
   <Hero lang={lang} />
   <Features lang={lang} />
   <WhyAmbrosia lang={lang} />

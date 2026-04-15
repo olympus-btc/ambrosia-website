@@ -7,11 +7,11 @@ export function getLangFromUrl(url: URL): Lang {
 }
 
 export function useTranslations(lang: Lang) {
-  return function t(key: TranslationKey): string {
-    return ui[lang][key] || ui[defaultLang][key];
+  return function t(key: TranslationKey | string): string {
+    return ui[lang][key as TranslationKey] || ui[defaultLang][key as TranslationKey];
   };
 }
 
 export function getLocalizedPath(lang: Lang, path: string = ''): string {
-  return `/${lang}${path}`;
+  return `/${lang}/${path}`.replace(/\/{2,}/g, '/');
 }
