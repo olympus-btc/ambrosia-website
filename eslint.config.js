@@ -45,7 +45,7 @@ const typescriptRules = {
 
 export default [
   {
-    ignores: ['dist/', 'node_modules/', '.astro/'],
+    ignores: ['dist/', 'node_modules/', '.astro/', 'playwright-report/', 'test-results/'],
   },
 
   js.configs.recommended,
