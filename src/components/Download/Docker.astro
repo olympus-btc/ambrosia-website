@@ -1,0 +1,99 @@
+---
+import { useTranslations } from '@i18n/utils';
+import type { Lang } from '@i18n/ui';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const GUIDE_URL = 'https://tutorial.ambrosiapay.com/quick-start-docker/';
+const CLONE_CMD = 'git clone https://github.com/olympus-btc/ambrosia.git && cd ambrosia';
+const DOCKER_CMD = 'docker-compose up -d --wait && docker-compose restart';
+---
+
+<div id="panel-docker" data-panel="docker" role="tabpanel" hidden>
+  <div class="max-w-3xl mx-auto">
+
+    <!-- Description -->
+    <div class="p-6 md:p-8 bg-surface-card border border-b-subtle rounded-2xl mb-6">
+      <div class="flex items-center gap-4 mb-4">
+        <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-400/10 text-green-400 shrink-0">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div>
+          <h3 class="text-xl font-bold text-th">{t('dl.docker.title')}</h3>
+          <p class="text-sm text-tsec mt-1">{t('dl.docker.desc')}</p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 px-3 py-2 bg-green-400/5 border border-green-400/10 rounded-lg">
+        <svg class="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <p class="text-xs text-tsec">{t('dl.docker.prereqs')}</p>
+      </div>
+    </div>
+
+    <!-- Steps -->
+    <div class="p-6 md:p-8 bg-surface-card border border-b-subtle rounded-2xl mb-6">
+      <h4 class="text-sm font-semibold text-green-400 uppercase tracking-wider mb-6">{t('dl.docker.steps.title')}</h4>
+
+      <!-- Step 1 -->
+      <div class="flex gap-4 mb-6">
+        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">1</div>
+        <div class="flex-1">
+          <p class="text-sm text-tsec mb-2">{t('dl.docker.step1')}</p>
+          <div class="relative">
+            <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-2.5 rounded-lg overflow-x-auto pr-16">{CLONE_CMD}</code>
+            <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={CLONE_CMD}>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex gap-4 mb-6">
+        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">2</div>
+        <div class="flex-1">
+          <p class="text-sm text-tsec mb-2">{t('dl.docker.step2')}</p>
+          <div class="relative">
+            <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-2.5 rounded-lg overflow-x-auto pr-16">{DOCKER_CMD}</code>
+            <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={DOCKER_CMD}>Copy</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex gap-4">
+        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">3</div>
+        <div class="flex-1">
+          <p class="text-sm text-tsec">
+            {t('dl.docker.step3')}
+            <code class="font-mono text-green-400 ml-1">http://localhost:3000</code>
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <a
+      href={GUIDE_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center gap-2 w-full p-4 bg-green-400/10 border border-green-400/20 rounded-2xl text-green-400 font-semibold hover:bg-green-400/15 transition-colors"
+    >
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+      </svg>
+      {t('dl.docker.guide')} →
+    </a>
+
+  </div>
+</div>
