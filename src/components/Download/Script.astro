@@ -18,7 +18,6 @@ const INSTALL_CMD_NO_SERVICE =
 
 <div id="panel-script" data-panel="script" role="tabpanel" hidden>
   <div class="max-w-3xl mx-auto">
-
     <!-- Description -->
     <div class="p-6 md:p-8 bg-surface-card border border-b-subtle rounded-2xl mb-6">
       <div class="flex items-center gap-4 mb-3">
@@ -37,13 +36,15 @@ const INSTALL_CMD_NO_SERVICE =
 
     <!-- Commands -->
     <div class="p-6 md:p-8 bg-surface-card border border-b-subtle rounded-2xl mb-6 flex flex-col gap-6">
-
       <!-- Main command -->
       <div>
         <p class="text-xs font-semibold text-green-400 uppercase tracking-wider mb-2">{t('dl.script.label')}</p>
         <div class="relative">
           <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-3 rounded-lg overflow-x-auto pr-16">{INSTALL_CMD}</code>
-          <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={INSTALL_CMD}>Copy</button>
+          <button
+            class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded"
+            data-copy={INSTALL_CMD}>Copy</button
+          >
         </div>
       </div>
 
@@ -51,11 +52,15 @@ const INSTALL_CMD_NO_SERVICE =
       <div>
         <p class="text-xs font-semibold text-tm uppercase tracking-wider mb-2">{t('dl.script.alt.label')}</p>
         <div class="relative">
-          <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-3 rounded-lg overflow-x-auto pr-16">{INSTALL_CMD_NO_SERVICE}</code>
-          <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={INSTALL_CMD_NO_SERVICE}>Copy</button>
+          <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-3 rounded-lg overflow-x-auto pr-16"
+            >{INSTALL_CMD_NO_SERVICE}</code
+          >
+          <button
+            class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded"
+            data-copy={INSTALL_CMD_NO_SERVICE}>Copy</button
+          >
         </div>
       </div>
-
     </div>
 
     <!-- CTA -->
@@ -70,6 +75,5 @@ const INSTALL_CMD_NO_SERVICE =
       </svg>
       {t('dl.script.guide')} →
     </a>
-
   </div>
 </div>

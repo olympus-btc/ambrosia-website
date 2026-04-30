@@ -16,13 +16,14 @@ const DOCKER_CMD = 'docker-compose up -d --wait && docker-compose restart';
 
 <div id="panel-docker" data-panel="docker" role="tabpanel" hidden>
   <div class="max-w-3xl mx-auto">
-
     <!-- Description -->
     <div class="p-6 md:p-8 bg-surface-card border border-b-subtle rounded-2xl mb-6">
       <div class="flex items-center gap-4 mb-4">
         <div class="w-12 h-12 flex items-center justify-center rounded-xl bg-green-400/10 text-green-400 shrink-0">
           <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+            <path
+              d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+            ></path>
             <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
             <line x1="12" y1="22.08" x2="12" y2="12"></line>
           </svg>
@@ -48,31 +49,49 @@ const DOCKER_CMD = 'docker-compose up -d --wait && docker-compose restart';
 
       <!-- Step 1 -->
       <div class="flex gap-4 mb-6">
-        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">1</div>
+        <div
+          class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5"
+        >
+          1
+        </div>
         <div class="flex-1">
           <p class="text-sm text-tsec mb-2">{t('dl.docker.step1')}</p>
           <div class="relative">
             <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-2.5 rounded-lg overflow-x-auto pr-16">{CLONE_CMD}</code>
-            <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={CLONE_CMD}>Copy</button>
+            <button
+              class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded"
+              data-copy={CLONE_CMD}>Copy</button
+            >
           </div>
         </div>
       </div>
 
       <!-- Step 2 -->
       <div class="flex gap-4 mb-6">
-        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">2</div>
+        <div
+          class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5"
+        >
+          2
+        </div>
         <div class="flex-1">
           <p class="text-sm text-tsec mb-2">{t('dl.docker.step2')}</p>
           <div class="relative">
             <code class="block text-xs font-mono text-tsec bg-code-bg px-3 py-2.5 rounded-lg overflow-x-auto pr-16">{DOCKER_CMD}</code>
-            <button class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded" data-copy={DOCKER_CMD}>Copy</button>
+            <button
+              class="copy-btn absolute right-2 top-1/2 -translate-y-1/2 text-xs text-td hover:text-green-400 transition-colors px-2 py-1 rounded"
+              data-copy={DOCKER_CMD}>Copy</button
+            >
           </div>
         </div>
       </div>
 
       <!-- Step 3 -->
       <div class="flex gap-4">
-        <div class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5">3</div>
+        <div
+          class="w-7 h-7 rounded-full bg-green-400/10 border border-green-400/20 flex items-center justify-center text-green-400 text-xs font-bold shrink-0 mt-0.5"
+        >
+          3
+        </div>
         <div class="flex-1">
           <p class="text-sm text-tsec">
             {t('dl.docker.step3')}
@@ -94,6 +113,5 @@ const DOCKER_CMD = 'docker-compose up -d --wait && docker-compose restart';
       </svg>
       {t('dl.docker.guide')} →
     </a>
-
   </div>
 </div>

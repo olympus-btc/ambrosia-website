@@ -205,7 +205,8 @@ export const ui = {
     'dl.tab.docker': 'Docker',
     'dl.tab.script': 'Native',
     'dl.docker.title': 'Run with Docker',
-    'dl.docker.desc': 'Deploy Ambrosia PoS as a Docker container. Perfect for servers, headless machines, and always-on production environments.',
+    'dl.docker.desc':
+      'Deploy Ambrosia PoS as a Docker container. Perfect for servers, headless machines, and always-on production environments.',
     'dl.docker.prereqs': 'Requires Docker and Docker Compose installed on your system.',
     'dl.docker.steps.title': 'Get started in 3 steps',
     'dl.docker.step1': 'Clone the repository',
@@ -213,7 +214,8 @@ export const ui = {
     'dl.docker.step3': 'Open the app at',
     'dl.docker.guide': 'Docker Quick Start Guide',
     'dl.script.title': 'Install with a Single Command',
-    'dl.script.desc': 'The install script sets up Ambrosia PoS and all its dependencies automatically — including a systemd service so it starts on boot.',
+    'dl.script.desc':
+      'The install script sets up Ambrosia PoS and all its dependencies automatically — including a systemd service so it starts on boot.',
     'dl.script.label': 'Recommended — installs with systemd service',
     'dl.script.alt.label': 'Without systemd service',
     'dl.script.guide': 'Script Quick Start Guide',
@@ -528,7 +530,8 @@ export const ui = {
     'dl.tab.docker': 'Docker',
     'dl.tab.script': 'Native',
     'dl.docker.title': 'Ejecutar con Docker',
-    'dl.docker.desc': 'Despliega Ambrosia PoS como contenedor Docker. Perfecto para servidores, máquinas sin interfaz gráfica y entornos de producción siempre activos.',
+    'dl.docker.desc':
+      'Despliega Ambrosia PoS como contenedor Docker. Perfecto para servidores, máquinas sin interfaz gráfica y entornos de producción siempre activos.',
     'dl.docker.prereqs': 'Requiere Docker y Docker Compose instalados en tu sistema.',
     'dl.docker.steps.title': 'Empieza en 3 pasos',
     'dl.docker.step1': 'Clona el repositorio',
@@ -536,7 +539,8 @@ export const ui = {
     'dl.docker.step3': 'Abre la app en',
     'dl.docker.guide': 'Guía Docker Quick Start',
     'dl.script.title': 'Instalar con un Solo Comando',
-    'dl.script.desc': 'El script instala Ambrosia PoS y todas sus dependencias automáticamente, incluyendo un servicio systemd para que inicie al arranque.',
+    'dl.script.desc':
+      'El script instala Ambrosia PoS y todas sus dependencias automáticamente, incluyendo un servicio systemd para que inicie al arranque.',
     'dl.script.label': 'Recomendado — instala con servicio systemd',
     'dl.script.alt.label': 'Sin servicio systemd',
     'dl.script.guide': 'Guía de Instalación Script',

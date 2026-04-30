@@ -31,7 +31,6 @@ const t = useTranslations(lang);
 ---
 
 <div id="panel-desktop" data-panel="desktop" role="tabpanel">
-
   <!-- Platform Cards -->
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 mb-16">
     {
@@ -211,7 +210,8 @@ const t = useTranslations(lang);
             class="dl-item group flex items-center gap-2 p-3 rounded-lg bg-surface-card border border-b-subtle hover:bg-green-400/5 hover:border-green-400/20 transition-all"
           >
             <svg class="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>
+              <circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"
+              ></line>
             </svg>
             <span class="text-sm text-tb">{t('dl.help.issues')}</span>
           </a>
@@ -220,7 +220,8 @@ const t = useTranslations(lang);
             class="dl-item group flex items-center gap-2 p-3 rounded-lg bg-surface-card border border-b-subtle hover:bg-green-400/5 hover:border-green-400/20 transition-all"
           >
             <svg class="w-4 h-4 text-green-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline>
+              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"
+              ></polyline>
             </svg>
             <span class="text-sm text-tb">{t('dl.help.contact')}</span>
           </a>
@@ -240,5 +241,4 @@ const t = useTranslations(lang);
     <p class="text-sm text-tsec mb-4 max-w-xl mx-auto">{t('dl.verify.desc')}</p>
     <p class="text-xs text-tm">{t('dl.verify.match')}</p>
   </div>
-
 </div>
