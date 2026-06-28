@@ -15,7 +15,7 @@ export interface DownloadUrls {
   macArm64: string | undefined;
 }
 
-const FALLBACK_VERSION = 'v0.6.0-beta';
+const FALLBACK_VERSION = 'v0.7.1-beta';
 const GITHUB_API_URL = 'https://api.github.com/repos/olympus-btc/ambrosia/releases/latest';
 
 export function findAssetByPattern(assets: ReleaseAsset[], pattern: RegExp): string | undefined {
