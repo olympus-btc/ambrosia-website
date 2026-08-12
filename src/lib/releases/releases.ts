@@ -54,7 +54,7 @@ export async function fetchLatestRelease(): Promise<{ version: string; assets: R
         assets: release.assets ?? [],
       };
     }
-  } catch { }
+  } catch {}
 
   return { version: FALLBACK_VERSION, assets: [] };
 }
