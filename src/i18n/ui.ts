@@ -17,13 +17,14 @@ export const ui = {
     // Hero
     'hero.eyebrow': 'For stores that understand Bitcoin',
     'hero.headline': 'Open Source. Free. Sovereign.',
-    'hero.subheadline': 'Accept Lightning payments with your own Phoenixd node. No middlemen, no custody, no compromises.',
+    'hero.subheadline':
+      'Accept Lightning payments with Phoenixd or any NWC wallet, like Alby Hub. No middlemen, no custody, no compromises.',
     'hero.cta.download': 'Download',
     'hero.cta.github': 'View on GitHub',
     'hero.trust': 'Setup in under 5 minutes • No KYC • No subscriptions',
 
     // Feature Badges
-    'hero.badge.node': 'Your Node',
+    'hero.badge.node': 'Your Wallet',
     'hero.badge.lightning': 'Lightning Channels',
     'hero.badge.opensource': '100% Open Source',
     'hero.badge.free': 'Free Forever',
@@ -54,13 +55,13 @@ export const ui = {
     'why.row.lightning.wosblink': 'yes|Your node',
     'why.row.lightning.btcpay': 'yes|Your node',
     'why.row.lightning.zeus': 'yes|Your node',
-    'why.row.lightning.ambrosia': 'yes|Your phoenixd node|Pre-configured',
+    'why.row.lightning.ambrosia': 'yes|Phoenixd or any NWC wallet|Pre-configured',
     'why.row.maintenance': 'Maintenance',
     'why.row.maintenance.square': 'None (they maintain)',
     'why.row.maintenance.wosblink': 'None',
     'why.row.maintenance.btcpay': 'High|Updates, monitoring, troubleshooting',
     'why.row.maintenance.zeus': 'None',
-    'why.row.maintenance.ambrosia': 'Zero maintenance|phoenixd auto-manages',
+    'why.row.maintenance.ambrosia': 'Zero maintenance|Phoenixd auto-manages, or bring your own wallet',
     'why.row.hardware': 'Hardware Requirements',
     'why.row.hardware.square': 'Any device|Cloud-based',
     'why.row.hardware.wosblink': 'Any device',
@@ -121,7 +122,7 @@ export const ui = {
     'how.subheader': 'From setup to sale in under 5 minutes',
     'how.protip': 'Before your first sale:',
     'how.protip.text':
-      'After initial setup, visit the Wallet section to open your Lightning channel by depositing sats. This activates your phoenixd node and enables instant Bitcoin payments with full sovereignty.',
+      'If you use the built-in Phoenixd node, visit the Wallet section after setup and deposit sats to open your Lightning channel. If you connect an NWC wallet, you are ready to go.',
     'how.step1.number': '01',
     'how.step1.title': 'Set up your store',
     'how.step1.description':
@@ -274,9 +275,9 @@ export const ui = {
     // Features Section
     'features.header': 'Built on Bitcoin principles',
     'features.subheader': 'Every feature designed for sovereignty and simplicity',
-    'features.phoenixd.title': 'Integrated Phoenixd Node',
+    'features.phoenixd.title': 'Flexible Lightning Backend',
     'features.phoenixd.description':
-      "Runs ACINQ's phoenixd Lightning node natively. Manage your own node, handle your own liquidity, full node sovereignty.",
+      "Run ACINQ's phoenixd node natively, or connect Alby Hub or any Nostr Wallet Connect (NWC) wallet. You choose where your funds live.",
     'features.custody.title': 'Self-Custodial by Design',
     'features.custody.description':
       "Your private keys never leave your device. Non-custodial architecture means you're always in complete control of your funds.",
@@ -288,10 +289,21 @@ export const ui = {
       'Download once, use forever. No monthly fees, no transaction limits, no premium tiers. Open Source means truly free.',
     'features.setup.title': 'Running in Under 5 Minutes',
     'features.setup.description':
-      'Zero configuration required. Download, install, and start accepting bitcoin. Your phoenixd node handles everything automatically.',
+      'Zero configuration required. Download, install, and start accepting bitcoin. Your Lightning backend handles everything automatically.',
     'features.opensource.title': 'Fully Open Source',
     'features.opensource.description':
       'MIT licensed, auditable codebase. Fork it, verify it, modify it.  Community-driven development with full transparency.',
+
+    // Connect Wallet Section
+    'wallet.header': 'Connect your wallet',
+    'wallet.subheader': 'Use the built-in Phoenixd node or bring any Nostr Wallet Connect (NWC) wallet',
+    'wallet.phoenixd.description': "ACINQ's phoenixd node runs inside Ambrosia. Zero configuration, self-custodial.",
+    'wallet.alby.description':
+      'Paste your Alby Hub connection secret as the NWC URI. Create it as an Isolated app to limit what Ambrosia can spend.',
+    'wallet.nwc.description':
+      'Any wallet that supports Nostr Wallet Connect works. Pick Nostr Wallet Connect in the Lightning Backend step.',
+    'wallet.learn': 'Learn more',
+    'wallet.cta': 'Download and connect',
 
     // Footer
     'footer.tagline': 'Open source point of sale for Bitcoin Lightning payments.',
@@ -328,7 +340,7 @@ export const ui = {
     // Meta
     'meta.title': 'Ambrosia PoS - Open Source Bitcoin Lightning Point of Sale',
     'meta.description':
-      'Open source point of sale for Bitcoin Lightning. Run your own Phoenixd node. No custody, no KYC, no subscriptions.',
+      'Open source point of sale for Bitcoin Lightning. Use Phoenixd or any NWC wallet. No custody, no KYC, no subscriptions.',
   },
   es: {
     // Navigation
@@ -341,13 +353,14 @@ export const ui = {
     // Hero
     'hero.eyebrow': 'Para tiendas que entienden Bitcoin',
     'hero.headline': 'Open Source. Gratuito. Soberano.',
-    'hero.subheadline': 'Acepta pagos Lightning con tu propio nodo Phoenixd. Sin intermediarios, sin custodia, sin compromisos.',
+    'hero.subheadline':
+      'Acepta pagos Lightning con Phoenixd o cualquier wallet NWC, como Alby Hub. Sin intermediarios, sin custodia, sin compromisos.',
     'hero.cta.download': 'Descargar',
     'hero.cta.github': 'Ver en GitHub',
     'hero.trust': 'Configura en menos de 5 minutos • Sin KYC • Sin suscripciones',
 
     // Feature Badges
-    'hero.badge.node': 'Tu Nodo',
+    'hero.badge.node': 'Tu Wallet',
     'hero.badge.lightning': 'Canales Lightning',
     'hero.badge.opensource': '100% Open Source',
     'hero.badge.free': 'Gratis para siempre',
@@ -378,13 +391,13 @@ export const ui = {
     'why.row.lightning.wosblink': 'yes|Tu nodo',
     'why.row.lightning.btcpay': 'yes|Tu nodo',
     'why.row.lightning.zeus': 'yes|Tu nodo',
-    'why.row.lightning.ambrosia': 'yes|Tu nodo phoenixd|Pre-configurado',
+    'why.row.lightning.ambrosia': 'yes|Phoenixd o cualquier wallet NWC|Pre-configurado',
     'why.row.maintenance': 'Mantenimiento',
     'why.row.maintenance.square': 'Ninguno (ellos mantienen)',
     'why.row.maintenance.wosblink': 'Ninguno',
     'why.row.maintenance.btcpay': 'Alto|Actualizaciones, monitoreo, solución de problemas',
     'why.row.maintenance.zeus': 'Ninguno',
-    'why.row.maintenance.ambrosia': 'Cero mantenimiento|phoenixd auto-gestiona',
+    'why.row.maintenance.ambrosia': 'Cero mantenimiento|Phoenixd se auto-gestiona, o usa tu propia wallet',
     'why.row.hardware': 'Requisitos de Hardware',
     'why.row.hardware.square': 'Cualquier dispositivo|Basado en la nube',
     'why.row.hardware.wosblink': 'Cualquier dispositivo',
@@ -445,7 +458,7 @@ export const ui = {
     'how.subheader': 'De la configuración a la venta en menos de 5 minutos',
     'how.protip': 'Antes de tu primera venta:',
     'how.protip.text':
-      'Después de la configuración inicial, visita la sección Wallet para abrir tu canal Lightning depositando sats. Esto activa tu nodo phoenixd y habilita pagos instantáneos de Bitcoin con soberanía total.',
+      'Si usas el nodo Phoenixd integrado, visita la sección Wallet tras la configuración y deposita sats para abrir tu canal Lightning. Si conectas una wallet NWC, ya estás listo.',
     'how.step1.number': '01',
     'how.step1.title': 'Configura tu tienda',
     'how.step1.description':
@@ -599,9 +612,9 @@ export const ui = {
     // Features Section
     'features.header': 'Construido sobre principios Bitcoin',
     'features.subheader': 'Cada funcionalidad diseñada para soberanía y simplicidad',
-    'features.phoenixd.title': 'Nodo Phoenixd Integrado',
+    'features.phoenixd.title': 'Backend Lightning Flexible',
     'features.phoenixd.description':
-      'Ejecuta el nodo Lightning phoenixd de ACINQ nativamente. Gestiona tu propio nodo, maneja tu propia liquidez, soberanía total del nodo.',
+      'Ejecuta el nodo phoenixd de ACINQ nativamente, o conecta Alby Hub o cualquier wallet Nostr Wallet Connect (NWC). Tú eliges dónde viven tus fondos.',
     'features.custody.title': 'Auto-Custodia por Diseño',
     'features.custody.description':
       'Tus llaves privadas nunca salen de tu dispositivo. Arquitectura no custodial significa que siempre tienes control completo de tus fondos.',
@@ -613,10 +626,21 @@ export const ui = {
       'Descarga una vez, usa para siempre. Sin cuotas mensuales, sin límites de transacciones, sin planes premium. Open Source significa verdaderamente gratis.',
     'features.setup.title': 'Funcionando en Menos de 5 Minutos',
     'features.setup.description':
-      'Cero configuración requerida. Descarga, instala y comienza a aceptar bitcoin. Tu nodo phoenixd maneja todo automáticamente.',
+      'Cero configuración requerida. Descarga, instala y comienza a aceptar bitcoin. Tu backend Lightning maneja todo automáticamente.',
     'features.opensource.title': 'Completamente Open Source',
     'features.opensource.description':
       'Licencia MIT, código auditable. Bifúrcalo, verifícalo, modifícalo.  Desarrollo impulsado por la comunidad con transparencia total.',
+
+    // Connect Wallet Section
+    'wallet.header': 'Conecta tu wallet',
+    'wallet.subheader': 'Usa el nodo Phoenixd integrado o trae cualquier wallet Nostr Wallet Connect (NWC)',
+    'wallet.phoenixd.description': 'El nodo phoenixd de ACINQ corre dentro de Ambrosia. Cero configuración, autocustodial.',
+    'wallet.alby.description':
+      'Pega el secreto de conexión de Alby Hub como NWC URI. Créalo como app Isolated para limitar lo que Ambrosia puede gastar.',
+    'wallet.nwc.description':
+      'Funciona cualquier wallet compatible con Nostr Wallet Connect. Elige Nostr Wallet Connect en el paso Lightning Backend.',
+    'wallet.learn': 'Más información',
+    'wallet.cta': 'Descargar y conectar',
 
     // Footer
     'footer.tagline': 'Punto de venta open source para pagos Bitcoin Lightning.',
@@ -653,7 +677,7 @@ export const ui = {
     // Meta
     'meta.title': 'Ambrosia PoS - Punto de Venta Open Source Bitcoin Lightning',
     'meta.description':
-      'Punto de venta open source para Bitcoin Lightning. Corre tu propio nodo Phoenixd. Sin custodia, sin KYC, sin suscripciones.',
+      'Punto de venta open source para Bitcoin Lightning. Usa Phoenixd o cualquier wallet NWC. Sin custodia, sin KYC, sin suscripciones.',
   },
 } as const;
 

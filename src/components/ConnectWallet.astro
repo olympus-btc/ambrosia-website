@@ -1,0 +1,88 @@
+---
+import { useTranslations } from '@i18n/utils';
+import type { Lang } from '@i18n/ui';
+import albyHubSvg from '../assets/logos/alby-hub.svg?raw';
+import phoenixdLogo from '../assets/logos/phoenixd-wordmark.png';
+import nwcOnLight from '../assets/logos/nwc-full-dark.png';
+import nwcOnDark from '../assets/logos/nwc-full-light.png';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const options = [
+  { id: 'phoenixd', href: 'https://phoenix.acinq.co/server' },
+  { id: 'alby', href: 'https://albyhub.com' },
+  { id: 'nwc', href: 'https://nwc.dev' },
+] as const;
+---
+
+<section id="wallet" class="py-20 md:py-28 px-4 md:px-8">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-12 md:mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-th mb-4">
+        {t('wallet.header')}
+      </h2>
+      <p class="text-lg md:text-xl text-tsec max-w-2xl mx-auto">
+        {t('wallet.subheader')}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+      {
+        options.map(({ id, href }) => (
+          <div class="h-full p-6 md:p-8 bg-card-bg border border-b-subtle rounded-2xl hover:border-green-400/30 hover:bg-card-bg-hover transition-all duration-300 flex flex-col">
+            <div class="mb-4 flex h-9 w-36 items-center justify-start text-th">
+              {id === 'alby' && <div class="h-full w-full [&>svg]:h-full [&>svg]:w-full" set:html={albyHubSvg} />}
+              {id === 'phoenixd' && (
+                <img src={phoenixdLogo.src} alt="phoenixd" class="phoenixd-logo h-full w-full object-contain object-left" />
+              )}
+              {id === 'nwc' && (
+                <>
+                  <img src={nwcOnLight.src} alt="NWC" class="nwc-on-light h-full w-full object-contain object-left" />
+                  <img src={nwcOnDark.src} alt="NWC" class="nwc-on-dark h-full w-full object-contain object-left" />
+                </>
+              )}
+            </div>
+            <p class="text-tsec leading-relaxed mb-5 grow">{t(`wallet.${id}.description`)}</p>
+            <a href={href} target="_blank" rel="noopener noreferrer" class="text-green-400 hover:underline text-sm font-medium">
+              {t('wallet.learn')} →
+            </a>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-10 md:mt-12 flex justify-center">
+      <a
+        href="#download"
+        class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-linear-to-br from-green-400 to-green-600 text-t-on-accent font-semibold text-base rounded-lg hover:-translate-y-0.5 transition-all shadow-[0_4px_14px_rgba(74,222,128,0.3)] hover:shadow-[0_6px_20px_rgba(74,222,128,0.4)]"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+          <polyline points="7 10 12 15 17 10"></polyline>
+          <line x1="12" y1="15" x2="12" y2="3"></line>
+        </svg>
+        {t('wallet.cta')}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  :global(html.light) .phoenixd-logo {
+    filter: invert(1);
+  }
+  .nwc-on-light {
+    display: none;
+  }
+  :global(html.light) .nwc-on-light {
+    display: block;
+  }
+  :global(html.light) .nwc-on-dark {
+    display: none;
+  }
+</style>
